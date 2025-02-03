@@ -5,6 +5,9 @@
   
 [Paper we got dataset from](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-021-01184-w)
 
+Metadata variables within dataset: age, biomaterial provider, biosample model, disease, isolate, library name, organism, sex, tissue
+
+
 ### Potential Topic Questions: 
 Age related: diversity of endometrial microbiota across age groups, and if it correlates with fertility outcomes?
 
