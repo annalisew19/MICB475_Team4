@@ -2,6 +2,6 @@
 This repository serves as the source for all of the MICB475_25W2_Team4 term project information, meeting notes, R code, etc
 
 ## Table of Contents
-  [Meeting Notes](#meeting-notes)
+  [Meeting Notes](#meeting_notes/)
   
   Meet: Mondays 3-3:45 pm @BIOL 3026
