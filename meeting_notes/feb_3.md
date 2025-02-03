@@ -9,6 +9,7 @@ Age related: diversity of endometrial microbiota across age groups, and if it co
 
 Biomaterial provider: data collected from different material providers, may have variation? Can look at if there is difference in microbiota profiles between providers and if it could have affected the study’s conclusion. 
 
+Other potential questions: the paper mentioned the ethnic distribution: caucasian 57.3%, east asian 14.0%, hispanic 11.4%, others 17.3%. If possible to obtain data for metadata category, could also look at potential differences in microbiota composition in different ethnicities.
 
 ## Meeting Notes
 
