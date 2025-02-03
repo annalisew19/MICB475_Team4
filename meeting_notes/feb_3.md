@@ -25,6 +25,26 @@ Other potential questions: the paper mentioned the ethnic distribution: caucasia
 
 ## Meeting Notes
 
+- Evelyn putting paper and dataset onto server and test it for us, will send this back to us
 
+Chosen Research Question:
+- How does distribution of endometrial microbiota sample types (EF vs EB) vary across different age groups, and does age correlate with reproductive success?
+  
+To Do:
+- Use given metadata and load into R to find sample sizes of age
+  - Make histogram to see how many samples we have of each age
+  - If sample sizes are small, can bin ages together (ex: 20-25, 26-30, etc) 
+- Within each age, measure the frequency of each pregnancy outcome
+- Need a back-up plan in case the metadata doesn't work within the server (could maybe use the paper 9 data and just work with a smaller sample size)
+- Process metadata using Qiime before proposal (once on the server) using the team server
+- Download project 1 qza files onto GitHub as reference and easy access
+- Keep copy of metadata file, and other files generated as backups
+
+Next week
+- Discuss writing an outline for the proposal
+
+Proposal assignment
+- Posted on CANVAS
+- Expected: data processing already done before proposal is due
 
 
