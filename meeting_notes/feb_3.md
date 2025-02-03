@@ -1,7 +1,8 @@
 # February 3, 2025
 
 ## Agenda
-- Chosen topic: IVF 
+- Chosen topic: IVF and the endometrial microbiome
+  
 [Paper we got dataset from](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-021-01184-w)
 
 ### Potential Topic Questions: 
