@@ -7,7 +7,7 @@
 
 Metadata variables within dataset: age, biomaterial provider, biosample model, disease, isolate, library name, organism, sex, tissue
 
-<img src="file-path-within-your-repository/img.png" height="500" width="500">
+<img src="images/dataset.png" height="500" width="500">
 
 
 ### Potential Topic Questions: 
