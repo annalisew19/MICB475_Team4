@@ -7,6 +7,8 @@
 
 Metadata variables within dataset: age, biomaterial provider, biosample model, disease, isolate, library name, organism, sex, tissue
 
+<img src="file-path-within-your-repository/img.png" height="500" width="500">
+
 
 ### Potential Topic Questions: 
 Age related: diversity of endometrial microbiota across age groups, and if it correlates with fertility outcomes?
