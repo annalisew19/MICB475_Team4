@@ -41,4 +41,24 @@ age_outcome_count <- ggplot(age_preg_outcome, aes(x = AGE, y = Count, fill = dis
        fill = "Pregnancy Outcome") 
 age_outcome_count
 
+#Modify metadata to include age groups
+  #add new column age group
+meta <- meta %>%
+  mutate(AGE_GROUP = case_when(
+    AGE >= 20 & AGE <= 25 ~ "20-25",
+    AGE >= 26 & AGE <= 30 ~ "26-30",
+    AGE >= 31 & AGE <= 35 ~ "31-35",
+    AGE >= 36 & AGE <= 40 ~ "36-40",
+    AGE >= 41 & AGE <= 45 ~ "41-45",
+    AGE >= 46 & AGE <= 50 ~ "46-50"
+
+  #updated histogram using age_group
+agegroup_histo <- ggplot(meta, aes(x = AGE_GROUP)) +
+  geom_bar(fill = "skyblue", color = "black") +
+  labs(title = "Age Group Distribution of Samples",
+       x = "Age Group",
+       y = "Number of Samples") 
+agegroup_histo
+
+
 
