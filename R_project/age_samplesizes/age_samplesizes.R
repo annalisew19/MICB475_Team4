@@ -41,9 +41,14 @@ age_outcome_count <- ggplot(age_preg_outcome, aes(x = AGE, y = Count, fill = dis
        fill = "Pregnancy Outcome") 
 age_outcome_count
 
-#Modify metadata to include age groups
-  #add new column age group
+# save age_histo into age_samplesizes folder
+ggsave("pregnancy_outcomes_by_age.png",
+       plot = age_outcome_count)
+
+#Modify metadata to use agegroups in the graph
+#add new column age group and filter out all the NAs
 meta <- meta %>%
+  filter(!is.na(AGE)) %>%
   mutate(AGE_GROUP = case_when(
     AGE >= 20 & AGE <= 25 ~ "20-25",
     AGE >= 26 & AGE <= 30 ~ "26-30",
@@ -51,8 +56,9 @@ meta <- meta %>%
     AGE >= 36 & AGE <= 40 ~ "36-40",
     AGE >= 41 & AGE <= 45 ~ "41-45",
     AGE >= 46 & AGE <= 50 ~ "46-50"
+  ))
 
-  #updated histogram using age_group
+#updated histogram using age_group
 agegroup_histo <- ggplot(meta, aes(x = AGE_GROUP)) +
   geom_bar(fill = "skyblue", color = "black") +
   labs(title = "Age Group Distribution of Samples",
@@ -60,5 +66,24 @@ agegroup_histo <- ggplot(meta, aes(x = AGE_GROUP)) +
        y = "Number of Samples") 
 agegroup_histo
 
+#save as png
+ggsave("agegroup_samplesizes.png",
+       plot = agegroup_histo)
 
+# Create a stacked barplot to visualize the counts of different pregnancy outcome
+# for each age group
+agegroup_preg_outcome <- meta %>%
+  group_by(AGE_GROUP, disease) %>%
+  summarise(Count = n(), .groups = "drop")
 
+agegroup_outcome_count <- ggplot(agegroup_preg_outcome, aes(x = AGE_GROUP, y = Count, fill = disease)) +
+  geom_col(position = "stack") +
+  labs(title = "Pregnancy Outcomes by Age Group",
+       x = "Age",
+       y = "Number of Samples",
+       fill = "Pregnancy Outcome") 
+agegroup_outcome_count
+
+#save as png
+ggsave("pregnancy_outcomes_by_agegroup.png",
+       plot = agegroup_outcome_count)
