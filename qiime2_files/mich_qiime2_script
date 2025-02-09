@@ -1,1 +1,20 @@
+# import data
+qiime tools import \
+  --type "SampleData[SequencesWithQuality]" \
+  --input-format SingleEndFastqManifestPhred33V2 \
+  --input-path /data/imported_from_server/IVF_manifest.tsv \
+  --output-path /data/michelle_test/ivf_demux_seqs.qza
 
+# create visualization of demultiplexed samples
+qiime demux summarize \
+  --i-data ivf_demux_seqs.qza \
+  --o-visualization ivf_demux_seqs.qzv
+
+# determine ASVs with DADA2
+qiime dada2 denoise-single \
+  --i-demultiplexed-seqs ivf_demux_seqs.qza \
+  --p-trim-left 0 \
+  --p-trunc-len 303 \
+  --o-representative-sequences ivf-rep-seqs.qza \
+  --o-table ivf-table.qza \
+  --o-denoising-stats ivf-stats.qza
