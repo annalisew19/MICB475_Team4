@@ -1,3 +1,5 @@
+## IMPORTING
+
 # import data
 qiime tools import \
   --type "SampleData[SequencesWithQuality]" \
@@ -9,6 +11,8 @@ qiime tools import \
 qiime demux summarize \
   --i-data ivf_demux_seqs.qza \
   --o-visualization ivf_demux_seqs.qzv
+
+##DENOISING
 
 # determine ASVs with DADA2
 qiime dada2 denoise-single \
