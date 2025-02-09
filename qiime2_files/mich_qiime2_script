@@ -18,3 +18,19 @@ qiime dada2 denoise-single \
   --o-representative-sequences ivf-rep-seqs.qza \
   --o-table ivf-table.qza \
   --o-denoising-stats ivf-stats.qza
+
+# create visualization of DADA2 stats
+qiime metadata tabulate \
+  --m-input-file ivf-stats.qza \
+  --o-visualization ivf-stats.qzv
+
+# create visualization of ASV stats - Feature table
+qiime feature-table summarize \
+  --i-table ivf-table.qza \
+  --o-visualization ivf-table.qzv \
+  --m-sample-metadata-file /mnt/datasets/project_2/IVF/IVF_metadata.tsv
+
+# create visualization of ASV stats - Representative sequences
+qiime feature-table tabulate-seqs \
+  --i-data ivf-rep-seqs.qza \
+  --o-visualization ivf-rep-seqs.qzv
