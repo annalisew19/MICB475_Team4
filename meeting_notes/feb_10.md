@@ -1,7 +1,8 @@
 # February 10, 2025
 
 ## Agenda
-- Discuss R code and the age binning we decided on 
+- Discuss R code and the age binning we decided on
+- Start planning team proposal and dividing work
 
 ### What we have done
 R Portion:
