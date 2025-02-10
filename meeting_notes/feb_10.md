@@ -17,7 +17,7 @@ Qiime2 Processing:
 <img src="../qiime2_files/qiime2view_screenshots/ivf_demux_qiime2_interactive_quality_plot.png" height="600" width="650">
 
 ### Questions to ask
-
+- primer choice for classifier training
 
 ## Meeting Notes
 
