@@ -38,3 +38,11 @@ qiime feature-table summarize \
 qiime feature-table tabulate-seqs \
   --i-data ivf-rep-seqs.qza \
   --o-visualization ivf-rep-seqs.qzv
+
+# training classifier, trained over entire database because many variable regions sequenced by paper
+qiime feature-classifier extract-reads \
+  --i-sequences ref-otus.qza \ (replace this with the representative sequence file on server)
+  --p-f-primer GTGCCAGCMGCCGCGGTAA \
+  --p-r-primer GGACTACHVGGGTWTCTAAT \
+  --p-trunc-len 303 \
+  --o-reads ref-seqs-trimmed.qza
