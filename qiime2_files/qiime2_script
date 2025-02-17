@@ -52,3 +52,18 @@ qiime feature-classifier classify-sklearn \
   --i-classifier /mnt/datasets/classifiers/silva-138-99-nb-classifier.qza \
   --i-reads ivf-rep-seqs.qza \
   --o-classification IVF_taxonomy.qza
+
+##DENOISING
+
+# filtering out mitochondria & chloroplast from table
+qiime taxa filter-table \
+  --i-table ivf-table.qza \
+  --i-taxonomy IVF_taxonomy.qza \
+  --p-exclude mitochondria,chloroplast \
+  --o-filtered-table ivf-table-omit-mitochondria-chloroplast.qza
+
+# create visualization of ASV stats - Filtered table - omitted mitochondria & chloroplast
+qiime feature-table summarize \
+  --i-table ivf-table-omit-mitochondria-chloroplast.qza \
+  --o-visualization ivf-table-omit-mitochondria-chloroplast.qzv \
+  --m-sample-metadata-file /mnt/datasets/project_2/IVF/IVF_metadata.tsv
