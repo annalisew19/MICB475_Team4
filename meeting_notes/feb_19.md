@@ -15,9 +15,12 @@ Qiime2 Processing:
 - created visualization of ASV stats (omitted mitochondria & chloroplast, no NA age)
 - generated tree for phylogenetic diversity analysis
 - alpha rarefaction
-    - screenshot of alpha rarefaction curve based on sample (not to sure what sampling depth to use, somewhere between 5000-10000?)
-
-<img src="../qiime2_files/qiime2view_screenshots/ivf_alpha_rarefaction.png" height="300" width="500">
+  1. screenshot of alpha rarefaction curve based on sample (not too sure what sampling depth to use, somewhere between 5000-10000?)
+        <img src="../qiime2_files/qiime2view_screenshots/ivf_alpha_rarefaction.png" height="300" width="500">
+  2. sampling depth of 10000
+        <img src="../qiime2_files/qiime2view_screenshots/ivf_samplingdepth_10000.png" height="300" width="500">
+  3. sampling depth of 5000
+        <img src="../qiime2_files/qiime2view_screenshots/ivf_samplingdepth_5000.png" height="300" width="500">
 
 Proposal:
 - Introduction (rough draft)
