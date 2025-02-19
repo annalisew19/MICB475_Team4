@@ -11,7 +11,8 @@ Qiime2 Processing:
 - trained classifer over entire database because many variable regions sequenced by paper
 - taxonomic analysis using untrained classifier
 - filtered out mitochondria & chloroplast from table
-- created visualization of ASV stats (omitted mitochondria & chloroplast)
+- filtered out NAs is the age column of metadata
+- created visualization of ASV stats (omitted mitochondria & chloroplast, no NA age)
 - generated tree for phylogenetic diversity analysis
 
 Proposal:
