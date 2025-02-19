@@ -52,7 +52,8 @@ Rough outline of how we plan to achieve each aim (we need some guidance and to w
 2. for aim 3, rephrase "investigate correlation" so there's more emphasis on the diversity analysis. 
 3. for aim 1 and 2 that is originally done by literature, add if we find anything that the paper did not find. look at other papers and see if there are other species.
 4. in each paragraph for aims, mention what you expect to see and why (reference paper).
-5. 1f. mention what metric, be more specific for everything
+5. 1f. mention what metric, be more specific for everything (1H)
+6. sampling depth : 10000 is ok
 
 ## Next week
 
