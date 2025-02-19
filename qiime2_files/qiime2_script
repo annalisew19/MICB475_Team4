@@ -76,8 +76,18 @@ qiime feature-table summarize \
   --o-filtered-table ivf-filtered-table-no-age-NA.qza
 
 #creating visualization of ASV stats filtered table - with omitted mitochondria & chloroplast + NA in age
-  #qza to qzv
   qiime feature-table summarize \
+  --i-table ivf-filtered-table-no-age-NA.qza \
+  --o-visualization ivf-filtered-table-no-age-NA.qzv \
+  --m-sample-metadata-file /data/imported_from_server/IVF_metadata.tsv
+
+# generate a tree for phylogenetic diversity analyses
+qiime phylogeny align-to-tree-mafft-fasttree \
+  --i-sequences ivf-rep-seqs.qza \
+  --o-alignment ivf-aligned-rep-seqs.qza \
+  --o-masked-alignment ivf-masked-aligned-rep-seqs.qza \
+  --o-tree ivf-unrooted-tree.qza \
+  --o-rooted-tree ivf-rooted-tree.qza
   --i-table ivf-filtered-table-no-age-NA.qza \
   --o-visualization ivf-filtered-table-no-age-NA.qzv \
   --m-sample-metadata-file /data/imported_from_server/IVF_metadata.tsv
