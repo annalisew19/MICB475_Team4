@@ -29,6 +29,8 @@ Proposal:
 
 
 ### Questions to ask
+Research Question: How does endometrial microbial diversity differ across age groups and correlate with IVF reproductive outcome?
+
 Our experimental aims are:
 1. Characterize the microbial diversity in the endometrium across different age groups
 2. Identify bacterial taxa that are associated with reproductive success or failure
