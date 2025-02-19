@@ -17,9 +17,9 @@ Qiime2 Processing:
 - alpha rarefaction
   1. screenshot of alpha rarefaction curve based on sample (not too sure what sampling depth to use, somewhere between 5000-10000?)
         <img src="../qiime2_files/qiime2view_screenshots/ivf_alpha_rarefaction.png" height="300" width="500">
-  2. sampling depth of 10000
+  2. sampling depth of 10000 (Retained 1,180,000 (36.03%) features in 118 (17.59%) samples at the specifed sampling )
         <img src="../qiime2_files/qiime2view_screenshots/ivf_samplingdepth_10000.png" height="300" width="500">
-  3. sampling depth of 5000
+  3. sampling depth of 5000 (Retained 1,025,000 (31.30%) features in 205 (30.55%) samples at the specifed sampling)
         <img src="../qiime2_files/qiime2view_screenshots/ivf_samplingdepth_5000.png" height="300" width="500">
 
 Proposal:
