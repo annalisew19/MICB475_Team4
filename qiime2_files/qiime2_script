@@ -67,3 +67,18 @@ qiime feature-table summarize \
   --i-table ivf-table-omit-mitochondria-chloroplast.qza \
   --o-visualization ivf-table-omit-mitochondria-chloroplast.qzv \
   --m-sample-metadata-file /mnt/datasets/project_2/IVF/IVF_metadata.tsv
+
+# filtering out NA in the AGE column of metadata
+  qiime feature-table filter-samples \
+  --i-table ivf-table-omit-mitochondria-chloroplast.qza \
+  --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
+  --p-where "[AGE] != 'NA'" \
+  --o-filtered-table ivf-filtered-table-no-age-NA.qza
+
+#creating visualization of ASV stats filtered table - with omitted mitochondria & chloroplast + NA in age
+  #qza to qzv
+  qiime feature-table summarize \
+  --i-table ivf-filtered-table-no-age-NA.qza \
+  --o-visualization ivf-filtered-table-no-age-NA.qzv \
+  --m-sample-metadata-file /data/imported_from_server/IVF_metadata.tsv
+
