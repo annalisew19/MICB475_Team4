@@ -14,6 +14,10 @@ Qiime2 Processing:
 - filtered out NAs is the age column of metadata
 - created visualization of ASV stats (omitted mitochondria & chloroplast, no NA age)
 - generated tree for phylogenetic diversity analysis
+- alpha rarefaction
+- screenshot of alpha rarefaction curve based on sample
+
+<img src="../qiime2_files/qiime2view_screenshots/ivf_alphararefaction.png" height="400" width="400">
 
 Proposal:
 - Introduction (rough draft)
