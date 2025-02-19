@@ -15,8 +15,8 @@ Qiime2 Processing:
 - generated tree for phylogenetic diversity analysis
 
 Proposal:
-- Introduction 
-- Research question and hypothesis
+- Introduction (rough draft)
+- Research question and hypothesis (rough draft)
 - Still have to edit these sections
 
 
