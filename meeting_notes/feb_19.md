@@ -6,7 +6,6 @@
 ### What we have done
 R Portion:
 
-
 Qiime2 Processing:
 - trained classifer over entire database because many variable regions sequenced by paper
 - taxonomic analysis using untrained classifier
@@ -25,7 +24,13 @@ Qiime2 Processing:
 Proposal:
 - Introduction (rough draft)
 - Research question and hypothesis (rough draft)
-- Still have to edit these sections
+- Experimental aims and proposed step-by-step appraoch 
+
+### What we still have to do for proposal
+- Gaant chart
+- Dataset overview
+- The rationale behind the experimental aims
+- Edit 
 
 
 ### Questions to ask
