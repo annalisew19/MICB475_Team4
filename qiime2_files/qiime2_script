@@ -92,3 +92,10 @@ qiime phylogeny align-to-tree-mafft-fasttree \
   --o-visualization ivf-filtered-table-no-age-NA.qzv \
   --m-sample-metadata-file /data/imported_from_server/IVF_metadata.tsv
 
+# alpha-rarefaction
+qiime diversity alpha-rarefaction \
+  --i-table ivf-filtered-table-no-age-NA.qza \
+  --i-phylogeny ivf-rooted-tree.qza \
+  --p-max-depth 44161 \
+  --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
+  --o-visualization ivf-alpha-rarefaction.qzv
