@@ -15,9 +15,9 @@ Qiime2 Processing:
 - created visualization of ASV stats (omitted mitochondria & chloroplast, no NA age)
 - generated tree for phylogenetic diversity analysis
 - alpha rarefaction
-- screenshot of alpha rarefaction curve based on sample
+    - screenshot of alpha rarefaction curve based on sample
 
-<img src="../qiime2_files/qiime2view_screenshots/ivf_alphararefaction.png" height="400" width="400">
+<img src="../qiime2_files/qiime2view_screenshots/ivf_alpha_rarefaction.png" height="300" width="500">
 
 Proposal:
 - Introduction (rough draft)
