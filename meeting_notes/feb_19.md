@@ -51,9 +51,18 @@ Rough outline of how we plan to achieve each aim (we need some guidance and to w
 2. for aim 3, rephrase "investigate correlation" so there's more emphasis on the diversity analysis. becomes the new aim 1
 3. for aim 2, reference paper result as well. explain why we are doing it again and potential changes we might make. add across age groups, find indicator species. becomes the new aim 2
 4. in each paragraph for aims, mention what you expect to see and why (reference paper).
-5. 1f. mention what metric, be more specific for everything (1H)
+5. 1f. mention what metric (e.g. look at diff outcomes across age groups), be more specific for everything (1H)
 6. sampling depth : 10000 is ok
 7. make sure aims are all novel, not what paper already covered
+8. diversity: look at diversity between age group bins, and diversity between outcomes.
+   - filter outcome with a successful pregnancy, identify age groups (e.g. early 30s).
+       - e.g. in case of successful pregnancy, how diversity varies.
+       - do the same for each outcome
+   - filter within a specific age group, identify different outcomes
+9. function analysis is pairwise, will have lots of groups. can choose which groups to look at based on taxonomic results. can also bin into bigger groups (e.g. 21-30, 31-40)
+10. in dataset overview mention how we bin age groups.
+11. in intro/hypothesis mention why we want to look at different age groups. add numbers to support our argument. 
+   
 
 ## Next week
 
