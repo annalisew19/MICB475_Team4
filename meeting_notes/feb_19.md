@@ -15,7 +15,7 @@ Qiime2 Processing:
 - created visualization of ASV stats (omitted mitochondria & chloroplast, no NA age)
 - generated tree for phylogenetic diversity analysis
 - alpha rarefaction
-    - screenshot of alpha rarefaction curve based on sample
+    - screenshot of alpha rarefaction curve based on sample (not to sure what sampling depth to use, somewhere between 5000-10000?)
 
 <img src="../qiime2_files/qiime2view_screenshots/ivf_alpha_rarefaction.png" height="300" width="500">
 
@@ -34,28 +34,7 @@ Our experimental aims are:
 
 
 Rough outline of how we plan to achieve each aim (we need some guidance and to work on this more as a group):
-1. 
-  Qiime process, get into R, histogram to see number of samples for each age and bin by age
-  Bin the samples by age (25-30, 35-40, 40-45, 45-50)
-  Do taxonomical analysis of the endometrium microbiomes for the binned age groups
-  Do alpha diversity analysis to compare the difference in the endometrium microbiome diversity based on age
-    IV = age
-    DV = endometrial microbiome composition
-Visualize: 
-2. 
-  Within binned age groups, organize into different IVF pregnancy outcomes
-  Taxonomic diversity metrics within the pregnancy outcomes
-    IV = pregnancy outcome
-    DV = endometrial microbiome species present
- Compare the differences in pregnancy outcome and different microbiome compositions
- Visaulize: 
-3.
-  Pearson or Spearman corrleation between alpha diversity metric (for different ages) and the pregnancy outcome
-    IV = alpha diversity of endometrium binned by age (continuous IV)
-    DV = pregnancy outcomes
-  Visualize:
-4. 
-
+<img src="../images/aim_approach.png" height="500" width="400">
 
 ## Meeting Notes
 
