@@ -28,9 +28,9 @@ Proposal:
 
 ### What we still have to do for proposal
 - Gaant chart
-- Dataset overview
+- Dataset overview in more detail
 - The rationale behind the experimental aims
-- Edit 
+- Edit + references 
 
 
 ### Questions to ask
