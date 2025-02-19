@@ -8,7 +8,11 @@ R Portion:
 
 
 Qiime2 Processing:
-- 
+- trained classifer over entire database because many variable regions sequenced by paper
+- taxonomic analysis using untrained classifier
+- filtered out mitochondria & chloroplast from table
+- created visualization of ASV stats (omitted mitochondria & chloroplast)
+- generated tree for phylogenetic diversity analysis
 
 Proposal:
 - Introduction 
