@@ -4,6 +4,10 @@ This repository serves as the source for all of the MICB475_25W2_Team4 term proj
 ## Research Question:
 How does endometrial microbial diversity differ across age groups and correlate with IVF reproductive outcome?
 
+## Project Timeline
+<img width="720" alt="image" src="https://github.com/user-attachments/assets/f8b0319b-3b76-422c-b232-c3ef657c5d77" />
+
+
 ## Table of Contents
   [Meeting Notes](meeting_notes)
   
