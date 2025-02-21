@@ -99,3 +99,11 @@ qiime diversity alpha-rarefaction \
   --p-max-depth 44161 \
   --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
   --o-visualization ivf-alpha-rarefaction.qzv
+
+# calculate alpha- and beta-diversity metrics
+qiime diversity core-metrics-phylogenetic \
+  --i-phylogeny ivf-rooted-tree.qza \
+  --i-table ivf-filtered-table-no-age-NA.qza \
+  --p-sampling-depth 10000 \
+  --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
+  --output-dir ivf-core-metrics-results
