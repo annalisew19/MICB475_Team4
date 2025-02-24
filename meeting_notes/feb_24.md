@@ -15,7 +15,8 @@ Qiime2 Processing:
 
 Proposal:
 - finished
-
+- proposed approach:
+- 
 
 ### Questions to ask
 
