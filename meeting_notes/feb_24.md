@@ -16,7 +16,9 @@ Qiime2 Processing:
 Proposal:
 - finished
 - proposed approach:
-- 
+<img src="../images/proposed_approach1.png" height="600" width="450">
+<img src="../images/proposed_approach2.png" height="100" width="450">
+
 
 ### Questions to ask
 
