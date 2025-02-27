@@ -109,7 +109,6 @@ qiime diversity core-metrics-phylogenetic \
   --output-dir ivf-core-metrics-results
 
 # Visualizing diversity metrics as .qzv files 
-# Calculate alpha-group-significance
 qiime diversity alpha-group-significance \
   --i-alpha-diversity faith_pd_vector.qza \
   --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
@@ -119,3 +118,8 @@ qiime diversity alpha-group-significance \
   --i-alpha-diversity evenness_vector.qza \
   --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
   --o-visualization evenness-group-significance.qzv
+
+qiime diversity alpha-group-significance \
+  --i-alpha-diversity shannon_vector.qza \
+  --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
+  --o-visualization shannon_vector.qzv
