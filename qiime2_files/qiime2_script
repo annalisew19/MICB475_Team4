@@ -123,3 +123,21 @@ qiime diversity alpha-group-significance \
   --i-alpha-diversity shannon_vector.qza \
   --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
   --o-visualization shannon_vector.qzv
+
+# Exporting files 
+qiime tools export \
+--input-path ../ivf_data/ivf-table.qza \
+--output-path ivf-table_export 
+
+biom convert \
+-i feature-table.biom \
+--to-tsv \
+-o feature-table.txt
+
+qiime tools export \
+--input-path ../ivf_data/ivf-rooted-tree.qza \
+--output-path ivf-rooted-tree_export 
+
+qiime tools export \
+--input-path ../ivf_data/IVF_taxonomy.qza \
+--output-path ivf_taxonomy_export 
