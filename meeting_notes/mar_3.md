@@ -7,7 +7,11 @@
 ### What we have done
 R Portion:
 - Aim 1
-- Aim 2
+- Aim 2: ISA at p< 0.05
+    - ISA based on outcome: both ASVs are associated with successful outcomes. 
+      <img src="../images/ISA_outcome.png" height="60" width="1000">
+    - ISA based on age group: all 5 ASVS are assocaited with 46-50 age group
+      <img src="../images/ISA_age_group.png" height="110" width="1200">
 
 
 ### Questions to ask
@@ -25,3 +29,4 @@ R Portion:
 - Dr. Evelyn Sun will be around for the last 2 meetings to help clarify/troubleshoot
   - Be prepared for these last 2 meetings 
 
+  
