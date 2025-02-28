@@ -17,7 +17,11 @@ IVFtax <- read_delim("taxonomy.tsv", delim="\t")
 IVFmeta_select <- select(IVFmeta, `sample-id`,`AGE`, `disease`, `Sample Name`, `tissue`)
 
 # filters rows that have NA in the column AGE and disease
-IVFmeta_filter <- filter(IVFmeta_select, AGE != "NA", disease != "NA") #remove NA in age and disease
+IVFmeta_filter <- filter(IVFmeta_select, 
+                         AGE != "NA",
+                         AGE > 26,
+                         disease != "NA", 
+                         disease != "NA: Not Applicable") 
 
 # create new column called age_group
 IVFmeta_age_group <- IVFmeta_filter %>%
