@@ -101,7 +101,7 @@ mpt_genus <- tax_glom(ivf_phyloseq, "Genus", NArm = FALSE)
 #convert counts from otu table from absolute to relative
 mpt_genus_RA <- transform_sample_counts(mpt_genus, fun=function(x) x/sum(x))
 
-#ISA
+##ISA based on outcome
 #tanspose otu table, cluster is predictor
 isa_mpt <- multipatt(t(otu_table(mpt_genus_RA)), cluster = sample_data(mpt_genus_RA)$`outcome`)
 summary(isa_mpt)
@@ -116,6 +116,19 @@ isa_mpt$sign %>%
   filter(p.value<0.05) %>% View()
 #convert ASV from 
 
+##ISA based on agegroup
+#tanspose otu table, cluster is predictor
+isa_mpt <- multipatt(t(otu_table(mpt_genus_RA)), cluster = sample_data(mpt_genus_RA)$`age_group`)
+summary(isa_mpt)
+#stat closer to 1 means its a better indicator
+taxtable <- tax_table(ivf_phyloseq) %>% as.data.frame() %>% rownames_to_column(var="ASV")
 
+# consider that your table is only going to be resolved up to the genus level, be wary of 
+# anything beyond the glomed taxa level
+isa_mpt$sign %>%
+  rownames_to_column(var="ASV") %>%
+  left_join(taxtable) %>%
+  filter(p.value<0.05) %>% View()
+#convert ASV from 
 
 
