@@ -18,20 +18,18 @@ IVFmeta <- read_delim("IVF_metadata.tsv", delim = "\t")
 IVFmeta_select <- select(IVFmeta, `sample-id`,`AGE`, `disease`, `tissue`)
 
 # filters rows that have NA in the column AGE and disease
-IVFmeta_filter <- filter(IVFmeta_select, 
+IVFmeta_age_group <- filter(IVFmeta_select, 
                          AGE != "NA",
-                         AGE > 26,
+                         AGE > 25,
                          disease != "NA", 
-                         disease != "NA: Not Applicable") 
-
-# create new column called age_group
-IVFmeta_age_group <- IVFmeta_filter %>%
-  mutate(age_group = case_when(
+                         disease != "NA: Not Applicable") %>%
+   mutate(age_group = case_when(
     AGE >= 26 & AGE <= 30 ~ "26-30",
     AGE >= 31 & AGE <= 35 ~ "31-35",
     AGE >= 36 & AGE <= 40 ~ "36-40",
     AGE >= 41 & AGE <= 45 ~ "41-45",
     AGE >= 46 & AGE <= 50 ~ "46-50"))
+
 
 # group by age group and summarize number of samples in each age group
 IVFmeta_age_group %>%
@@ -66,7 +64,7 @@ IVFphylotree <- read.tree("tree.nwk")
 # save everything except first column (OTU ID) into a matrix
 ivf_otu_mat <- as.matrix(IVFotu[,-1]) #remove the first index column
 # Make first column (#OTU ID) the rownames of the new matrix
-rownames(ivf_otu_mat) <- IVFotu$`#OTU ID`
+rownames(ivf_otu_mat) <- IVFotu$'#OTU ID'
 # Use the "otu_table" function to make an OTU table
 ivf_OTU <- otu_table(ivf_otu_mat, taxa_are_rows = TRUE) 
 class(ivf_OTU)
@@ -89,7 +87,7 @@ ivf_tax_mat <- IVFtax %>% select(-Confidence)%>% #remove Confidence columm
 # Save everything except feature IDs 
 ivf_tax_mat <- ivf_tax_mat[,-1]
 # Make sampleids the rownames
-rownames(ivf_tax_mat) <- IVFtax$`Feature ID`
+rownames(ivf_tax_mat) <- IVFtax$'Feature ID'
 # Make taxa table
 ivf_TAX <- tax_table(ivf_tax_mat)
 class(ivf_TAX)
