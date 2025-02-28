@@ -1,3 +1,5 @@
+######## Aim 2: Indicator Species Analysis
+
 #load packages
 library(tidyverse)
 library(phyloseq)
@@ -5,6 +7,7 @@ library(ggplot2)
 library(vegan)
 library(DESeq2)
 library(ape)
+library(indicspecies)
 
 ########  METADATA MANIPULATION
 
@@ -94,4 +97,6 @@ class(ivf_TAX)
 ### Create phyloseq object 
 # Merge all into a phyloseq object
 ivf_mpt <- phyloseq(ivf_OTU, ivf_SAMP, ivf_TAX, IVFphylotree)
+
+############ INDICATOR SPECIES ANALYSIS
 
