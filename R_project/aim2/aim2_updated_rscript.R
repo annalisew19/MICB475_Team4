@@ -9,6 +9,7 @@ library(ggplot2)
 library(vegan)
 library(DESeq2)
 library(ape)
+library(indicspecies)
 
 
 #### Binning Reproductive outcome and age ####
@@ -92,6 +93,29 @@ class(TAX)
 ## Create phyloseq object
 ivf_phyloseq <- phyloseq(OTU, META, TAX, ivf_phylotree)
 
-#### Indicator Speices Analysis ####
+#### Indicator Speices Analysis/Taxa Analysis ####
+
+# group OTUs to the genus level
+#group data based on specific taxanomic rank: Genus, don't want to remove NA
+mpt_genus <- tax_glom(ivf_phyloseq, "Genus", NArm = FALSE)
+#convert counts from otu table from absolute to relative
+mpt_genus_RA <- transform_sample_counts(mpt_genus, fun=function(x) x/sum(x))
+
+#ISA
+#tanspose otu table, cluster is predictor
+isa_mpt <- multipatt(t(otu_table(mpt_genus_RA)), cluster = sample_data(mpt_genus_RA)$`outcome`)
+summary(isa_mpt)
+#stat closer to 1 means its a better indicator
+taxtable <- tax_table(ivf_phyloseq) %>% as.data.frame() %>% rownames_to_column(var="ASV")
+
+# consider that your table is only going to be resolved up to the genus level, be wary of 
+# anything beyond the glomed taxa level
+isa_mpt$sign %>%
+  rownames_to_column(var="ASV") %>%
+  left_join(taxtable) %>%
+  filter(p.value<0.05) %>% View()
+#convert ASV from 
+
+
 
 
