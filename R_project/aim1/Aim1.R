@@ -58,6 +58,40 @@ ivf_tax <- read_delim(taxfp)
 phylotreefp <- "../data_files/ivf_export/ivf-rooted-tree_export/tree.nwk"
 ivf_phylotree <- read.tree(phylotreefp)
 
-# Format OTU table
+## Format OTU table
 # with rownames and colnames as OTUs and sampleIDs, respectively
+ivf_otu_mat <- as.matrix(ivf_otu[,-1])
+# Make the first column (#OTU ID) the rownames of the new matrix
+rownames(ivf_otu_mat) <- ivf_otu$'#OTU ID'
+OTU <- otu_table(ivf_otu_mat, taxa_are_rows = TRUE)
+class(OTU)
+
+## Format ivf_meta_updated
+# Save everything except sampleid as new data frame
+samp_df <- as.data.frame(ivf_meta_updated[,-1])
+# Make sampleids the rownames
+rownames(samp_df) <- ivf_meta_updated$'sample-id'
+# Make phyloseq sample data with sample_data() function
+META <- sample_data(samp_df)
+class(META)
+
+## Format taxonomy
+# Conver taxon strings to a table with separate taxa rank columns
+tax_mat <- ivf_tax %>% select(-Confidence) %>%
+  separate(col=Taxon, sep="; "
+           , into = c("Domain","Phylum","Class","Order","Family","Genus","Species")) %>%
+  as.matrix()
+tax_mat <- tax_mat[,-1]
+# Make sampleids the rownames
+rownames(tax_mat) <- ivf_tax$'Feature ID'
+# Make taxa table
+TAX <- tax_table(tax_mat)
+class(TAX)
+
+## Create phyloseq object
+ivf_phyloseq <- phyloseq(OTU, META, TAX, ivf_phylotree)
+
+
+
+
 
