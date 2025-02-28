@@ -1,17 +1,15 @@
 #load packages
 library(tidyverse)
+library(phyloseq)
+library(ggplot2)
+library(vegan)
+library(DESeq2)
+library(ape)
+
+########  METADATA MANIPULATION
 
 # Load metadata
-# the read_delim is a version of the other read.delim command but from tidyverse
 IVFmeta <- read_delim("IVF_metadata.tsv", delim = "\t")
-
-# Load features table
-IVFotu <- read_delim("feature-table.txt", delim = "\t", skip=1)
-
-# Load taxonomy file
-IVFtax <- read_delim("taxonomy.tsv", delim="\t")
-
-### dplyr data manipulation
 
 # select for coloumns, include only sample id, age, prg outcome (disease), sample name, and tissue
 IVFmeta_select <- select(IVFmeta, `sample-id`,`AGE`, `disease`, `Sample Name`, `tissue`)
@@ -52,3 +50,12 @@ IVFmeta_age_and_outcome <- IVFmeta_age_group %>%
 IVFmeta_age_and_outcome %>%
   group_by(preg_outcome, age_group) %>%  # Group by both preg_outcome and age_group
   summarize(count_samples = n())
+
+
+############ CREATING PHYLOSEQ OBJECT
+
+# Load features table, taxonomy file, and tree
+IVFotu <- read_delim("feature-table.txt", delim = "\t", skip=1)
+IVFtax <- read_delim("taxonomy.tsv", delim="\t")
+IVFphylotree <- read.tree("tree.nwk")
+
