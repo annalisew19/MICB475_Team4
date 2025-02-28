@@ -16,5 +16,5 @@ IVFtax <- read_delim("taxonomy.tsv", delim="\t")
 #select for coloumns, include only sample id, age, prg outcome (disease), sample name, and tissue
 IVFmeta_select <- select(IVFmeta, `sample-id`,`AGE`, `disease`, `Sample Name`, `tissue`)
 
-# Filters rows based on values
-IVFmeta_filter <- filter(IVFmeta_select, !is.na('AGE'), , !is.na('disease')) #remove NA in age and disease
+# Filters rows based on values  
+IVFmeta_filter <- filter(IVFmeta_select, AGE != "NA", disease != "NA") #remove NA in age and disease
