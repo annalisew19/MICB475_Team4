@@ -36,4 +36,19 @@ IVFmeta_age_group <- IVFmeta_filter %>%
 IVFmeta_age_group %>%
   group_by(age_group) %>%  # group by 'age_group'
   summarize(count_samples = n())  
-          
+
+# group by age group and summarize number of samples in each age group
+IVFmeta_age_group %>%
+  group_by(age_group) %>%  # group by 'age_group'
+  summarize(count_samples = n())  
+
+# create new column called preg_outcome, and group "disease" into successful or unsuccessful
+IVFmeta_age_and_outcome <- IVFmeta_age_group %>%
+  mutate(preg_outcome = case_when(
+    disease %in% c("Live birth", "Ongoing pregnancy") ~ "successful",
+    disease %in% c("Clinical miscarriage", "Biochemical pregnancy", "No pregnancy", "Ectopic pregnancy") ~ "unsucessful"))
+
+# group by disease and age group, summarize number of samples in each
+IVFmeta_age_and_outcome %>%
+  group_by(preg_outcome, age_group) %>%  # Group by both preg_outcome and age_group
+  summarize(count_samples = n())
