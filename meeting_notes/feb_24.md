@@ -56,7 +56,7 @@ Reveiwing aims
  
 Dividing up work:
 - Annalise Aim 1 and double check Aim 3
-- Michelle Aim 2 and double check Aim 2
+- Michelle Aim 2 and double check Aim 1
 - Carleton Aim 2
 - Wren Aim 3
 
