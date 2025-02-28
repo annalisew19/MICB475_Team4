@@ -11,7 +11,8 @@ R Portion:
 
 
 ### Questions to ask
-
+- When creating phyloseq object, lots of taxonomy is unclassified
+- Phyloseq object rarefaction parameter
 
 ## Meeting Notes
 
