@@ -6,9 +6,14 @@
 
 ### What we have done
 R Portion:
-- Aim 1: Shannon Diversity boxplots
+- Aim 1: (still have to do statistical tests (linear regression model))
+  - Shannon Diversity boxplots
   
   <img src="../R_project/aim1/shannon_diversity.png" height="300" width="400">
+
+  - Faith's PD boxplots
+ 
+  <img src="../R_project/aim1/faithpd_boxplot.png" height="300" width="400">
   
 - Aim 2: ISA at p< 0.05
     - ISA based on outcome: both ASVs are associated with successful outcomes. 
