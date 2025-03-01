@@ -110,7 +110,7 @@ rarecurve(t(as.data.frame(otu_table(ivf_final))), cex=0.1)
 ivf_rare <- rarefy_even_depth(ivf_final, rngseed = 1, sample.size = 2500)
 
 #### Alpha Diversity #### 
-# Shannon's Diversity
+## Shannon's Diversity
 gg_richness <- plot_richness(ivf_rare, x = "age_group", color = "outcome", measures = c("Shannon")) +
   facet_wrap(~ outcome) +
   geom_boxplot() +
@@ -123,6 +123,34 @@ ggsave(filename = "shannon_diversity.png",
        gg_richness,
        height = 4, width = 6)
 
-# Faith's PD
+## Faith's PD
+# calculate Faith's phylogenetic diversity as PD
+phylo_dist <- pd(t(otu_table(ivf_rare)), phy_tree(ivf_rare),
+                 include.root = F)
+
+# add PD to metadata table
+sample_data(ivf_rare)$PD <- phylo_dist$PD
+
+# plot metadata category against hte PD
+plot.pd <- ggplot(sample_data(ivf_rare), aes(age_group, PD)) + 
+  geom_boxplot() +
+  facet_wrap(~ outcome) +
+  xlab("Age Group") +
+  ylab("Phylogenetic Diversity")
+
+ggsave("faithpd_boxplot.png",
+       height = 4,
+       width = 6)
+
+## Statistical Analysis
+
+
+
+#### Beta Diversity ####
+
+
+
+
+
 
 
