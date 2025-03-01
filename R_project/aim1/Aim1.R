@@ -147,7 +147,10 @@ ggsave("faithpd_boxplot.png",
 
 
 #### Beta Diversity ####
+bc_dm <- phyloseq::distance(ivf_rare, method ="wunifrac")
 
+pcoa_wu <- ordinate(ivf_rare, method="PCoA", distance = bc_dm)
+plot_ordination(ivf_rare, pcoa_wu, color = "age_group", shape = "outcome")
 
 
 
