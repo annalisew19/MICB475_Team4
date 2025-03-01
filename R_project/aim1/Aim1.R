@@ -8,6 +8,7 @@ library(ggplot2)
 library(vegan)
 library(DESeq2)
 library(ape)
+library(picante)
 
 
 #### Binning Reproductive outcome and age ####
@@ -102,11 +103,26 @@ ivf_phyloseq_nolow <- filter_taxa(ivf_phyloseq_filt, function(x) sum(x)>5, prune
 ivf_final <- prune_samples(sample_sums(ivf_phyloseq_nolow)>100, ivf_phyloseq_nolow)
 
 # Adjust plot margins to make sure there is enough space for the plot
-par(mar = c(3, 3, 1, 1))  # Adjust margins (bottom, left, top, right)
+par(mar = c(4, 4, 2, 2))  # Adjust margins (bottom, left, top, right)
 
 # Rarefy samples
 rarecurve(t(as.data.frame(otu_table(ivf_final))), cex=0.1)
 ivf_rare <- rarefy_even_depth(ivf_final, rngseed = 1, sample.size = 2500)
 
 #### Alpha Diversity #### 
+# Shannon's Diversity
+gg_richness <- plot_richness(ivf_rare, x = "age_group", color = "outcome", measures = c("Shannon")) +
+  facet_wrap(~ outcome) +
+  geom_boxplot() +
+  labs(title = "Shannon Diversity Across Age Groups by IVF Outcome",
+       x = "Age Group",
+       y = "Shannon Diversity")
+gg_richness
+
+ggsave(filename = "shannon_diversity.png",
+       gg_richness,
+       height = 4, width = 6)
+
+# Faith's PD
+
 
