@@ -16,7 +16,9 @@ R Portion:
 
 ### Questions to ask
 - When creating phyloseq object, lots of taxonomy is unclassified
-- Phyloseq object rarefaction parameter
+- Phyloseq object rarefaction parameter (thinking of choosing 2500 as rarefaction parameter)
+  <img src="../images/rare_curve.png" height="400" width="600">
+
 
 ## Meeting Notes
 
