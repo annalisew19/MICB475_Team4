@@ -14,10 +14,14 @@ R Portion:
       <img src="../images/ISA_age_group.png" height="110" width="1200">
 
 
-### Questions to ask
-- When creating phyloseq object, lots of taxonomy is unclassified
+### Questions to ask/Issues
+- When creating phyloseq object, lots of taxonomy is "Unassigned" so when we put it in proper format to be a phyloseq object lots of samples come up as "Unassigned" or "NA":
+  
+- When creating phyloseq object, is filtering it and rarefaction needed? Because losing lots of samples:
+<img src="../images/filter:rarefy_Q.png" height="300" width="400"> 
 - Phyloseq object rarefaction parameter (thinking of choosing 2500 as rarefaction parameter)
   <img src="../images/rare_curve.png" height="400" width="600">
+
 
 
 ## Meeting Notes
