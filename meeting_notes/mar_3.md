@@ -14,6 +14,8 @@ R Portion:
   - Faith's PD boxplots
  
   <img src="../R_project/aim1/faithpd_boxplot.png" height="300" width="400">
+
+- Weighted Unifrac PCoA plot
   
 - Aim 2: ISA at p< 0.05
     - ISA based on outcome: both ASVs are associated with successful outcomes. 
