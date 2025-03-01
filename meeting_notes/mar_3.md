@@ -6,7 +6,10 @@
 
 ### What we have done
 R Portion:
-- Aim 1
+- Aim 1: Shannon Diversity boxplots
+  
+  <img src="../R_project/aim1/shannon_diversity.png" height="300" width="400">
+  
 - Aim 2: ISA at p< 0.05
     - ISA based on outcome: both ASVs are associated with successful outcomes. 
       <img src="../images/ISA_outcome.png" height="60" width="1000">
@@ -17,11 +20,11 @@ R Portion:
 ### Questions to ask/Issues
 - When creating phyloseq object, lots of taxonomy is "Unassigned" so when we put it in proper format to be a phyloseq object lots of samples come up as "Unassigned" or "NA":
   
+    <img src="../images/phyloseq_tax_q.png" height="300" width="400">
 - When creating phyloseq object, is filtering it and rarefaction needed? Because losing lots of samples:
 <img src="../images/filter:rarefy_Q.png" height="300" width="400"> 
 - Phyloseq object rarefaction parameter (thinking of choosing 2500 as rarefaction parameter)
   <img src="../images/rare_curve.png" height="400" width="600">
-
 
 
 ## Meeting Notes
