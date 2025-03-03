@@ -18,9 +18,14 @@ R Portion:
 - Weighted Unifrac PCoA plot
   
 - Aim 2: ISA at p< 0.05
-    - ISA based on outcome: both ASVs are associated with successful outcomes. 
+    - ISA based on outcome: 2 ASVs are associated with successful outcomes.
+      - expected lactobacillus dominance in successful outcome, but found streptococcus (from the order lactobacillales)
+      - maybe other taxa within the lactobacillales order may also play role in reproductive success?
+      - 
       <img src="../images/ISA_outcome.png" height="60" width="1000">
-    - ISA based on age group: all 5 ASVS are assocaited with 46-50 age group
+    - ISA based on age group: all 5 ASVS are assocaited with 46-50 age group.
+      - indicated taxa are not the expected non-LD microbes
+      - lactobacillus was not detected as an indicator taxon in the younger age groups
       <img src="../images/ISA_age_group.png" height="110" width="1200">
 
 
@@ -29,7 +34,7 @@ R Portion:
   
     <img src="../images/phyloseq_tax_q.png" height="300" width="400">
 - When creating phyloseq object, is filtering it and rarefaction needed? Because losing lots of samples:
-<img src="../images/filter:rarefy_Q.png" height="300" width="400"> 
+<img src="../images/filter-rarefy_Q.png" height="300" width="400"> 
 - Phyloseq object rarefaction parameter (thinking of choosing 2500 as rarefaction parameter)
   <img src="../images/rare_curve.png" height="400" width="600">
 
