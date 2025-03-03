@@ -17,16 +17,17 @@ R Portion:
 
 - Weighted Unifrac PCoA plot
   
-- Aim 2: ISA at p< 0.05
-    - ISA based on outcome: 2 ASVs are associated with successful outcomes.
+- Aim 2:ISA based on reproductive outcome and age-group
+  
+    - ISA based on outcome: 3 ASVs are associated with successful outcomes.
       - expected lactobacillus dominance in successful outcome, but found streptococcus (from the order lactobacillales)
       - maybe other taxa within the lactobacillales order may also play role in reproductive success?
       - 
-      <img src="../images/ISA_outcome.png" height="60" width="1000">
-    - ISA based on age group: all 5 ASVS are assocaited with 46-50 age group.
+      <img src="../images/ISA_outcome_p0.05.png" height="80" width="1000">
+    - ISA based on age group: 6 ASVS are assocaited with 46-50 age group.
       - indicated taxa are not the expected non-LD microbes
       - lactobacillus was not detected as an indicator taxon in the younger age groups
-      <img src="../images/ISA_age_group.png" height="110" width="1200">
+      <img src="../images/ISA_age_group_p0.05.png" height="110" width="1200">
 
 
 ### Questions to ask/Issues
