@@ -125,24 +125,24 @@ isa_mpt_outcome$sign %>%
 
 ##ISA based on agegroup
 #tanspose otu table, cluster is predictor
-isa_mpt <- multipatt(t(otu_table(mpt_genus_RA)), cluster = sample_data(mpt_genus_RA)$`age_group`)
-summary(isa_mpt)
+isa_mpt_agegroup <- multipatt(t(otu_table(mpt_genus_RA)), cluster = sample_data(mpt_genus_RA)$`age_group`)
+summary(isa_mpt_agegroup)
 #stat closer to 1 means its a better indicator
-taxtable <- tax_table(ivf_phyloseq) %>% as.data.frame() %>% rownames_to_column(var="ASV")
+taxtable_agegroup <- tax_table(ivf_phyloseq) %>% as.data.frame() %>% rownames_to_column(var="ASV")
 
 # consider that your table is only going to be resolved up to the genus level, be wary of 
 # anything beyond the glomed taxa level
 #at p=0.05
-isa_mpt$sign %>%
+isa_mpt_agegroup$sign %>%
   rownames_to_column(var="ASV") %>%
-  left_join(taxtable) %>%
+  left_join(taxtable_agegroup) %>%
   filter(p.value<0.05) %>% View()
 
 #at p=0.1
-isa_mpt$sign %>%
+isa_mpt_agegroup$sign %>%
   rownames_to_column(var="ASV") %>%
-  left_join(taxtable) %>%
-  filter(p.value<0.05) %>% View()
+  left_join(taxtable_agegroup) %>%
+  filter(p.value<0.1) %>% View()
 #convert ASV from 
 
 
