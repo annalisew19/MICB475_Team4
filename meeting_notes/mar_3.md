@@ -3,7 +3,6 @@
 
 ## Agenda
 
-
 ### What we have done
 R Portion:
 - Aim 1: (still have to do statistical tests (linear regression model))
@@ -48,13 +47,36 @@ R Portion:
 
 ## Meeting Notes
 
-  
+Manuscript feedback:
+- While most of the feedback can be addressed and integrated, Ritu confirmed we are not expected to address every single suggestion onto our revision
+  - Be more explicit in addressing certain kinds of feedback (the lactobaccilus part: "Yet, studies have not yet fully explored whether other microbial species, beyond Lactobacillus, may also contribute to reproductive success")
+- Ritu would like us to explain in-depth how we are investigating the nuances in age group differences (e.g. how this is novel and more profound compared to established/published data)
+  - Describe how we established our age groups (she encouraged us to attach the HISTOGRAM!)
+- Ritu brought up the loss in sample size (e.g. after rarefaction) -> please adjust to minimize loss(?)
+
+Additional Topics Discussed:
+- Ritu recommended getting rid of the microbial diversity part(?) -> [if anyone knows exactly what she meant, please address this?]
+- Re: regarding references from the matrix, please refer back to the provided reference page.
+- Discussed TA Hans' feedback (about how infertility impacts the endometrial microbiome)
+- Statistical testing: none technically completed -> asked about sample size loss
+
+Clarified ISA
+- Michelle discussed analysis results and rationale with Ritu -> Ritu suggested following through, and if Lactobaccilus doesn't show up, that's still a result
+  - potential to analyze with DESeq to yield counts?
+  - could expand on this during next meeting
 
 ## Week tasks
 
+TA (pending - may take 2-3 days from today):
+- Ritu will email us the statistical/correlation test she referred to during last meeting
+- Ritu will also look into methods to minimize sample size loss
+
+Re: assigned tasks
+- Annalise: Aim 1 and double check Aim 3
+- Michelle: Aim 2 and double check Aim 1
+- Carleton: Aim 2
+- Wren: Aim 3
 
 ## Future Reference
 - Dr. Evelyn Sun will be around for the last 2 meetings to help clarify/troubleshoot
   - Be prepared for these last 2 meetings 
-
-  
