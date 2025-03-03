@@ -110,10 +110,17 @@ taxtable <- tax_table(ivf_phyloseq) %>% as.data.frame() %>% rownames_to_column(v
 
 # consider that your table is only going to be resolved up to the genus level, be wary of 
 # anything beyond the glomed taxa level
+#at p=0.05
 isa_mpt$sign %>%
   rownames_to_column(var="ASV") %>%
   left_join(taxtable) %>%
   filter(p.value<0.05) %>% View()
+#at p=0.1
+isa_mpt$sign %>%
+  rownames_to_column(var="ASV") %>%
+  left_join(taxtable) %>%
+  filter(p.value<0.1) %>% View()
+
 #convert ASV from 
 
 ##ISA based on agegroup
@@ -125,10 +132,18 @@ taxtable <- tax_table(ivf_phyloseq) %>% as.data.frame() %>% rownames_to_column(v
 
 # consider that your table is only going to be resolved up to the genus level, be wary of 
 # anything beyond the glomed taxa level
+#at p=0.05
+isa_mpt$sign %>%
+  rownames_to_column(var="ASV") %>%
+  left_join(taxtable) %>%
+  filter(p.value<0.05) %>% View()
+
+#at p=0.1
 isa_mpt$sign %>%
   rownames_to_column(var="ASV") %>%
   left_join(taxtable) %>%
   filter(p.value<0.05) %>% View()
 #convert ASV from 
+
 
 
