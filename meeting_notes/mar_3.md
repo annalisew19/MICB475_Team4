@@ -34,7 +34,7 @@ R Portion:
   
     <img src="../images/phyloseq_tax_q.png" height="300" width="400">
 - When creating phyloseq object, is filtering it and rarefaction needed? Because losing lots of samples:
-<img src="../images/filter:rarefy_Q.png" height="300" width="400"> 
+<img src="../images/filter-rarefy_Q.png" height="300" width="400"> 
 - Phyloseq object rarefaction parameter (thinking of choosing 2500 as rarefaction parameter)
   <img src="../images/rare_curve.png" height="400" width="600">
 
