@@ -8,7 +8,8 @@
 R Portion:
 - Aim 1: (still have to do statistical tests (linear regression model))
   - Shannon Diversity boxplots
-  
+    - no clear trend of changes in Shannon diversity with age
+    - and perhaps no major differences between successful and unsuccessful groups
   <img src="../R_project/aim1/shannon_diversity.png" height="300" width="400">
 
   - Faith's PD boxplots
