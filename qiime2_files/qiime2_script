@@ -104,9 +104,9 @@ qiime diversity alpha-rarefaction \
 qiime diversity core-metrics-phylogenetic \
   --i-phylogeny ivf-rooted-tree.qza \
   --i-table ivf-filtered-table-no-age-NA.qza \
-  --p-sampling-depth 10000 \
+  --p-sampling-depth 5000 \
   --m-metadata-file /data/imported_from_server/IVF_metadata.tsv \
-  --output-dir ivf-core-metrics-results
+  --output-dir ivf-core-metrics-results-5000
 
 # Visualizing diversity metrics as .qzv files 
 qiime diversity alpha-group-significance \
