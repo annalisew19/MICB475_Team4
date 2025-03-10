@@ -30,7 +30,9 @@ Qiime2:
   - Couldn't find any species common/associated with unsuccessful pregnancy outcome
   - Add a separate metadata column: (i.e) "successful_agegroup_1". Acts to filter all the samples that are successful and fall under a particular age group
   - Do coremicrobiome as well
-- Aim 3: go over PICRUST modules 
+- Aim 3: go over PICRUST modules
+
+- Note can mention in limitations: diversity of tissue type, but we did not explore this because too many variables
 
 ### Next Week
 
