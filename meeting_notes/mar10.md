@@ -29,3 +29,7 @@ Qiime2:
 - Aim 3: go over PICRUST modules 
 
 ### Next Week
+
+## Future Reference
+- Dr. Evelyn Sun will be around for the last 2 meetings to help clarify/troubleshoot
+  - Be prepared for these last 2 meetings 
