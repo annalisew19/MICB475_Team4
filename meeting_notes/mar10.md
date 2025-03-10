@@ -4,7 +4,7 @@
 
 Proposal Re-submission
 - Finished editing it and making changes, just have to hand it in
- <img src="../images/proposed_apprach3" height="800" width="1100">
+ <img src="../images/proposed_approach3.png" height="200" width="700">
 
 
 R portion:
