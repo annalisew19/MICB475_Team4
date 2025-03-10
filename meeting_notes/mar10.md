@@ -21,10 +21,11 @@ Qiime2:
 
 ### Meeting Notes
 - for ISA, create new metadata column with both outcome and agegroup
-- Annalise (aim 1): use data with updated rarefaction parameter to update R script and diversity metrics
+- Aim 1: use data with updated rarefaction parameter to update R script and diversity metrics
 - Aim 2 (ISA):
   - Couldn't find any species common/associated with unsuccessful pregnancy outcome
   - Add a separate metadata column: (i.e) "successful_agegroup_1". Acts to filter all the samples that are successful and fall under a particular age group
+  - Do coremicrobiome as well
 - Aim 3: go over PICRUST modules 
 
 ### Next Week
