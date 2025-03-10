@@ -18,6 +18,6 @@ Qiime2:
 
 
 ### Meeting Notes
-
+- for ISA, create new metadata column with both outcome and agegroup
 
 ### Next Week
