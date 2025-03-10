@@ -4,6 +4,8 @@
 
 Proposal Re-submission
 - Finished editing it and making changes, just have to hand it in
+ <img src="../images/proposed_apprach3" height="800" width="1100">
+
 
 R portion:
 - Phyloseq object rarefaction curve chose: 2500
