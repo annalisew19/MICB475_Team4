@@ -125,7 +125,7 @@ ggsave(filename = "shannon_diversity.png",
 
 ## Faith's PD
 # calculate Faith's phylogenetic diversity as PD
-phylo_dist <- pd(t(otu_table(ivf_rare)), phy_tree(ivf_rare),
+phylo_dist <- pd(otu_table(ivf_rare), phy_tree(ivf_rare),
                  include.root = F)
 
 # add PD to metadata table
@@ -147,32 +147,47 @@ ggsave("faithpd_boxplot.png",
 
 
 #### Beta Diversity ####
-## Weightned UniFrac ##
+## Weighted UniFrac ##
 wu_dm <- phyloseq::distance(ivf_rare, method ="wunifrac")
 pcoa_wu <- ordinate(ivf_rare, method="PCoA", distance = wu_dm)
-wunifrac_pcoa <- plot_ordination(ivf_rare, pcoa_wu, color = "age_group") +
-  facet_wrap("outcome") +
+wunifrac_pcoa <- plot_ordination(ivf_rare, pcoa_wu, color = "age_group", shape = "outcome") +
   labs(col = "Age Group")
 
-ggsave("weighted_unifrac_pcoa.png",
+ggsave("weighted_unifrac_pcoa_try1.png",
        wunifrac_pcoa,
+       height = 4,
+       width = 6)
+
+# Tried Weighted UniFrac again with different code to compute diversity, got different result#
+dm_unifrac <- UniFrac(ivf_rare, weighted = TRUE)
+ord.unifrac <- ordinate(ivf_rare, method="PCoA", distance="unifrac")
+wunifrac2_pcoa <- plot_ordination(ivf_rare, ord.unifrac, color = "age_group", shape = "outcome") +
+  labs(col = "Age Group", shape = "Pregnancy Outcome")
+
+ggsave("weighted_unifrac_pcoa_try2.png",
+       wunifrac2_pcoa,
        height = 4,
        width = 6)
 
 ## Bray Curtis ##
 bc_dm <- phyloseq::distance(ivf_rare, method="bray")
 pcoa_bc <- ordinate(ivf_rare, method = "PCoA", distance = bc_dm)
-bc_pcoa <- plot_ordination(ivf_rare, pcoa_bc, color = "age_group") +
-  facet_wrap("outcome") +
-  labs(col = "Age Group")
+bc_pcoa <- plot_ordination(ivf_rare, pcoa_bc, color = "age_group", shape = "outcome") +
+  labs(col = "Age Group", shape = "Pregnancy Outcome")
 
-ggsave("bray_curtis_pcoa.png",
+ggsave("bray_curtis_pcoa_try1.png",
        bc_pcoa,
        height = 4,
        width = 6)
 
-## Statistical Analysis
-
+## Statistical Analysis ##
+# Extracting metadata and combine with alpha diversity measures using estimate_richness
+samp_dat_wdiv <- data.frame(sample_data(ivf_rare), estimate_richness(ivf_rare))
+# Statistical analysis on wunifrac_pcoa2
+adonis2(dm_unifrac ~ age_group*outcome, data=samp_dat_wdiv)
+# Statistical analysis on Bray Curtis
+dm_braycurtis <- vegdist(t(otu_table(ivf_rare)), method="bray") # Bray-curtis
+adonis2(dm_braycurtis ~ age_group*outcome, data=samp_dat_wdiv)
 
 #### Taxonomic Analysis ####
 # Plot bar plot of taxonomy
@@ -189,7 +204,9 @@ sample_data(ivf_phylum)$age_outcome <- sample_data(ivf_rare)$age_outcome
 
 # Plot bar plot
 tax_bar_plot <- plot_bar(ivf_phylum, fill = "Phylum") +
-  facet_wrap(.~age_outcome, scales = "free_x")
+  facet_wrap(.~age_outcome, scales = "free_x") +
+  labs(x = "Samples", y = "Relative Abundance", title = "Taxonomic Composition by Age & Outcome") +
+  scale_y_continuous(labels = scales::percent)
 
 ggsave("tax_composition.png",
        tax_bar_plot,
