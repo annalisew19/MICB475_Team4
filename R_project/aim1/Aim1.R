@@ -151,7 +151,8 @@ ggsave("faithpd_boxplot.png",
 wu_dm <- phyloseq::distance(ivf_rare, method ="wunifrac")
 pcoa_wu <- ordinate(ivf_rare, method="PCoA", distance = wu_dm)
 wunifrac_pcoa <- plot_ordination(ivf_rare, pcoa_wu, color = "age_group") +
-  facet_wrap("outcome")
+  facet_wrap("outcome") +
+  labs(col = "Age Group")
 
 ggsave("weighted_unifrac_pcoa.png",
        wunifrac_pcoa,
@@ -159,11 +160,41 @@ ggsave("weighted_unifrac_pcoa.png",
        width = 6)
 
 ## Bray Curtis ##
-bc_dm <- distance(ivf_rare, method="bray")
+bc_dm <- phyloseq::distance(ivf_rare, method="bray")
 pcoa_bc <- ordinate(ivf_rare, method = "PCoA", distance = bc_dm)
-bc_pcoa <- plot_ordination(ivf_rare, pcoa_bc, color = "age_group", shape = "outcome")
+bc_pcoa <- plot_ordination(ivf_rare, pcoa_bc, color = "age_group") +
+  facet_wrap("outcome") +
+  labs(col = "Age Group")
+
+ggsave("bray_curtis_pcoa.png",
+       bc_pcoa,
+       height = 4,
+       width = 6)
+
+## Statistical Analysis
 
 
+#### Taxonomic Analysis ####
+# Plot bar plot of taxonomy
+plot_bar(ivf_rare, fill = "Phylum")
+
+# Convert absolute number to relative abundance 
+ivf_RA <- transform_sample_counts(ivf_rare, function(x) x/sum(x))
+
+# To remove black bars, "glom" by phylum first 
+ivf_phylum <- tax_glom(ivf_RA, taxrank = "Phylum", NArm = FALSE)
+
+# Ensure 'age_outcome' metadata column is still present in metadata after tax_glom
+sample_data(ivf_phylum)$age_outcome <- sample_data(ivf_rare)$age_outcome
+
+# Plot bar plot
+tax_bar_plot <- plot_bar(ivf_phylum, fill = "Phylum") +
+  facet_wrap(.~age_outcome, scales = "free_x")
+
+ggsave("tax_composition.png",
+       tax_bar_plot,
+       height = 4,
+       width = 6)
 
 
 
