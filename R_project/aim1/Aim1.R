@@ -94,13 +94,9 @@ ivf_phyloseq <- phyloseq(OTU, META, TAX, ivf_phylotree)
 
 ## Filtering and Rarefying phyloseq object
 # Remove non-bacterial sequences, if any
-ivf_phyloseq_filt <- subset_taxa(ivf_phyloseq, Domain == "d__Bacteria"
+ivf_final <- subset_taxa(ivf_phyloseq, Domain == "d__Bacteria"
                                  & Class!="c__Chloroplast"
                                  & Family !="f_Mitochondria")
-# Remove ASVs that have less than 5 counts total
-ivf_phyloseq_nolow <- filter_taxa(ivf_phyloseq_filt, function(x) sum(x)>5, prune = TRUE)
-# Remove samples with less than 100 reads
-ivf_final <- prune_samples(sample_sums(ivf_phyloseq_nolow)>100, ivf_phyloseq_nolow)
 
 # Adjust plot margins to make sure there is enough space for the plot
 par(mar = c(4, 4, 2, 2))  # Adjust margins (bottom, left, top, right)
