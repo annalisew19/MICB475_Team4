@@ -47,6 +47,9 @@ ivf_meta_updated <- ivf_meta_updated %>%
                          right = TRUE)) # specifies that the right age boundary should be included
 
 
+# Create a new metadata column that combines age_group and outcome in age_outcome
+ivf_meta_updated <- ivf_meta_updated %>%
+  mutate(age_outcome = paste(age_group, outcome, sep = "_"))
 
 #### Creating phyloseq object ####
 # Load feature table, taxonomy, tree 
@@ -104,6 +107,7 @@ par(mar = c(4, 4, 2, 2))  # Adjust margins (bottom, left, top, right)
 # Rarefy samples
 rarecurve(t(as.data.frame(otu_table(ivf_final))), cex=0.1)
 ivf_rare <- rarefy_even_depth(ivf_final, rngseed = 1, sample.size = 2500)
+# Rarefaction removes 498 samples
 
 #### Alpha Diversity #### 
 ## Shannon's Diversity
@@ -143,10 +147,21 @@ ggsave("faithpd_boxplot.png",
 
 
 #### Beta Diversity ####
-bc_dm <- phyloseq::distance(ivf_rare, method ="wunifrac")
+## Weightned UniFrac ##
+wu_dm <- phyloseq::distance(ivf_rare, method ="wunifrac")
+pcoa_wu <- ordinate(ivf_rare, method="PCoA", distance = wu_dm)
+wunifrac_pcoa <- plot_ordination(ivf_rare, pcoa_wu, color = "age_group") +
+  facet_wrap("outcome")
 
-pcoa_wu <- ordinate(ivf_rare, method="PCoA", distance = bc_dm)
-plot_ordination(ivf_rare, pcoa_wu, color = "age_group", shape = "outcome")
+ggsave("weighted_unifrac_pcoa.png",
+       wunifrac_pcoa,
+       height = 4,
+       width = 6)
+
+## Bray Curtis ##
+bc_dm <- distance(ivf_rare, method="bray")
+pcoa_bc <- ordinate(ivf_rare, method = "PCoA", distance = bc_dm)
+bc_pcoa <- plot_ordination(ivf_rare, pcoa_bc, color = "age_group", shape = "outcome")
 
 
 
