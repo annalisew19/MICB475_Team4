@@ -97,6 +97,8 @@ class(TAX)
 ## Create phyloseq object
 ivf_phyloseq <- phyloseq(OTU, META, TAX, ivf_phylotree)
 
+save(ivf_phyloseq, file="ivf_phyloseq.RData")
+
 #### Indicator Speices Analysis/Taxa Analysis ####
 
 # group OTUs to the genus level
