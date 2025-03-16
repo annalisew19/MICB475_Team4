@@ -210,7 +210,7 @@ tax_bar_plot <- plot_bar(ivf_phylum, fill = "Phylum") +
 
 ggsave("tax_composition.png",
        tax_bar_plot,
-       height = 4,
+       height = 10,
        width = 6)
 
 
