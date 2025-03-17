@@ -38,6 +38,9 @@ Still have to do:
 - Taxonomic composition statistical analysis
 
 ##### Aim 2 (Michelle and Carleton):
+Core microbiome based on outcome (detecion= 0.001, prevalence = 0.1)
+<img src="../R_project/images/core_microbiome_outcome.png" height="300" width="400">
+
 
 
 ##### Aim 3 (Wren):
