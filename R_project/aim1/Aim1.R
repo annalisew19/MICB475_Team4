@@ -9,6 +9,8 @@ library(vegan)
 library(DESeq2)
 library(ape)
 library(picante)
+library(lme4)
+library(ggeffects)
 
 
 #### Binning Reproductive outcome and age ####
@@ -144,8 +146,111 @@ ggsave("faithpd_boxplot.png",
 
 
 #### Alpha Diversity (via linear regression) ####
+## Shannon's Diversity
+# Extract information 
+alphadiv <- estimate_richness(ivf_rare)
+samp_dat <- sample_data(ivf_rare)
+samp_dat_wdiv <- data.frame(samp_dat, alphadiv)
+
+# Add Shannon diversity to the metadata table
+sample_data(ivf_rare)$Shannon <- alphadiv$Shannon
+
+data <- samp_dat_wdiv
+
+# Convert 'outcome' to a factor (if it's not already)
+data$outcome <- as.factor(data$outcome)
+
+# Fit the Linear Mixed Effects Model (LME)
+lme_model <- lmer(Shannon ~ age_group + (1 | outcome), data = data)
+
+# Create a new dataset with model predictions
+data$predicted <- predict(lme_model, re.form = ~ (1 | outcome))  # Include random effects
+
+# Print model summary
+summary(lme_model)
+
+# Plot: Regression lines for each outcome
+shannon_lr <- ggplot(data, aes(x = age_group, y = Shannon, color = outcome)) +
+  geom_point(alpha = 0.6) +  
+  geom_line(aes(y = predicted, group = outcome), size = 1) +
+  labs(title = "Shannon Diversity Across Age for Different IVF Outcomes",
+       x = "Age",
+       y = "Shannon Diversity",
+       color = "Outcome") +
+  theme_minimal()
+
+## Statistical Analysis Shannon's Diversity
+# convert 'age_group' to numeric
+data$age_group <- as.numeric(data$age_group)
+
+# Spearman's correlation for each outcome separately
+cor_results_shannon <- data %>%
+  group_by(outcome) %>%
+  summarise(spearman_cor = cor.test(age_group, Shannon, method = "spearman", exact = FALSE)$estimate,
+            p_value = cor.test(age_group, Shannon, method = "spearman", exact = FALSE)$p.value)
+
+# Print correlation results per outcome
+print(cor_results_shannon)
+
+ggsave("Faith_PD_linear_reg.png",
+       faith_pd_lr,
+       height = 4,
+       width = 6)
 
 
+## Faith's PD
+phylo_dist <- pd(t(otu_table(ivf_rare)), phy_tree(ivf_rare),
+                 include.root=F) 
+
+# add PD to metadata table
+sample_data(ivf_rare)$PD <- phylo_dist$PD
+
+# Extract information 
+alphadiv <- estimate_richness(ivf_rare)
+samp_dat <- sample_data(ivf_rare)
+samp_dat_wdiv <- data.frame(samp_dat, alphadiv)
+
+data <- samp_dat_wdiv
+
+# Convert 'outcome' to a factor (if it's not already)
+data$outcome <- as.factor(data$outcome)
+
+# Fit the Linear Mixed Effects Model (LME)
+lme_model <- lmer(PD ~ age_group + (1 | outcome), data = data)
+
+# Create a new dataset with model predictions
+data$predicted <- predict(lme_model, re.form = ~ (1 | outcome))  # Include random effects
+
+# Print model summary
+summary(lme_model)
+
+# Plot: Regression lines for each outcome
+faith_pd_lr <- ggplot(data, aes(x = age_group, y = PD, color = outcome)) +
+  geom_point(alpha = 0.6) +  
+  geom_smooth(method = "lm", se = FALSE) +  # Separate regression lines
+  labs(title = "PD Across Age for Different IVF Outcomes",
+       x = "Age",
+       y = "PD",
+       color = "Outcome") +
+  theme_minimal()
+
+## Statistical Analysis Faith's PD
+# convert 'age_group' to numeric
+data$age_group <- as.numeric(data$age_group)
+
+# Spearman's correlation for each outcome separately
+cor_results_fpd <- data %>%
+  group_by(outcome) %>%
+  summarise(spearman_cor = cor.test(age_group, PD, method = "spearman", exact = FALSE)$estimate,
+            p_value = cor.test(age_group, PD, method = "spearman", exact = FALSE)$p.value)
+
+# Print correlation results per outcome
+print(cor_results_fpd)
+
+ggsave("Faith_PD_linear_reg.png",
+       faith_pd_lr,
+       height = 4,
+       width = 6)
 
 #### Beta Diversity ####
 ## Weighted UniFrac ##
