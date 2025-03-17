@@ -56,6 +56,7 @@ Still have to do:
 - CONTRADICTS PAPER FINDING: core microbiome analysis showed that Lactobacillus was the only unique ASV in the unsuccessful group, and streptomyces (along with 5 unassigned) is among the 6 unique ASVs in the successful group.
 - 
 ### Meeting Notes
-
+- linear regression plots can replace shannon diversity graphs
+- 
 
 ### Next Week
