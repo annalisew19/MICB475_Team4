@@ -40,7 +40,7 @@ prune_taxa(unsuccessful_ASVs,phyloseq_RA) %>%
 successful_list <- core_members(phyloseq_successful_outcome, detection=0.001, prevalence = 0.10)
 unsuccessful_list <- core_members(phyloseq_unsuccesful_outcome, detection=0.001, prevalence = 0.10)
 
-outcome_list_full <- list(Successful = successful_list, Unsuccessful = unsuccessful_list)
+outcome_list_full <- list(S= successful_list, U= unsuccessful_list)
 
 
 # Create a Venn diagram using all the ASVs shared and unique to antibiotic users and non users
