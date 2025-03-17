@@ -37,7 +37,7 @@ Still have to do:
 - Linear regression model
 - Taxonomic composition statistical analysis
 
-##### Aim 2 (Michelle and Carleton):
+##### Aim 2 (Michelle):
 Core microbiome based on outcome (detecion= 0.001, prevalence = 0.1)
 - <img src="../images/core_microbiome_outcome.png" height="300" width="400">
 - <img src="../images/core_mic_successful.png" height="130" width="800">
@@ -48,11 +48,6 @@ ISA analysis based on age group and outcome (p= 0.05)
 - <img src="../images/ISA_age_outcome_p0.05.png" height="70" width="1200">
 ISA analysis based on age group and outcome (p= 0.1)
 - <img src="../images/ISA_age_outcome_p0.1.png" height="200" width="1200">
-
-
-
-##### Aim 3 (Wren):
-
 
 
 ### Questions to ask/Issues
