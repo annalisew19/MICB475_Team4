@@ -192,8 +192,8 @@ cor_results_shannon <- data %>%
 # Print correlation results per outcome
 print(cor_results_shannon)
 
-ggsave("Faith_PD_linear_reg.png",
-       faith_pd_lr,
+ggsave("Shannon_linear_reg.png",
+       shannon_lr,
        height = 4,
        width = 6)
 
