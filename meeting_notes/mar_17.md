@@ -57,6 +57,6 @@ Still have to do:
 - 
 ### Meeting Notes
 - linear regression plots can replace shannon diversity graphs
-- 
+- for unassigned species, find the corresponding file (reps seq file) for blast
 
 ### Next Week
