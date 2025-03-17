@@ -142,7 +142,8 @@ ggsave("faithpd_boxplot.png",
        height = 4,
        width = 6)
 
-## Statistical Analysis
+
+#### Alpha Diversity (via linear regression) ####
 
 
 
@@ -191,27 +192,42 @@ adonis2(dm_braycurtis ~ age_group*outcome, data=samp_dat_wdiv)
 
 #### Taxonomic Analysis ####
 # Plot bar plot of taxonomy
-plot_bar(ivf_rare, fill = "Phylum")
+plot_bar(ivf_rare, fill = "Order")
 
 # Convert absolute number to relative abundance 
 ivf_RA <- transform_sample_counts(ivf_rare, function(x) x/sum(x))
 
 # To remove black bars, "glom" by phylum first 
-ivf_phylum <- tax_glom(ivf_RA, taxrank = "Phylum", NArm = FALSE)
+ivf_phlyum <- tax_glom(ivf_RA, taxrank = "Phylum", NArm = FALSE)
+
+# To remove black bars, "glom" by Class first 
+ivf_class <- tax_glom(ivf_RA, taxrank = "Class", NArm = FALSE)
+
+# To remove black bars, "glom" by Order first 
+ivf_order <- tax_glom(ivf_RA, taxrank = "Order", NArm = FALSE)
+
+# To remove black bars, "glom" by Family first 
+ivf_family <- tax_glom(ivf_RA, taxrank = "Family", NArm = FALSE)
+
+# To remove black bars, "glom" by Genus first 
+ivf_genus <- tax_glom(ivf_RA, taxrank = "Genus", NArm = FALSE)
+
+# To remove black bars, "glom" by Species first 
+ivf_species <- tax_glom(ivf_RA, taxrank = "Species", NArm = FALSE)
 
 # Ensure 'age_outcome' metadata column is still present in metadata after tax_glom
-sample_data(ivf_phylum)$age_outcome <- sample_data(ivf_rare)$age_outcome
+sample_data(ivf_species)$age_outcome <- sample_data(ivf_rare)$age_outcome
 
 # Plot bar plot
-tax_bar_plot <- plot_bar(ivf_phylum, fill = "Phylum") +
+tax_bar_plot <- plot_bar(ivf_species, fill = "Species") +
   facet_wrap(.~age_outcome, scales = "free_x") +
   labs(x = "Samples", y = "Relative Abundance", title = "Taxonomic Composition by Age & Outcome") +
   scale_y_continuous(labels = scales::percent)
 
-ggsave("tax_composition.png",
+ggsave("tax_composition_species.png",
        tax_bar_plot,
        height = 10,
-       width = 6)
+       width = 12)
 
 
 
