@@ -40,6 +40,8 @@ Still have to do:
 ##### Aim 2 (Michelle and Carleton):
 Core microbiome based on outcome (detecion= 0.001, prevalence = 0.1)
 - <img src="../images/core_microbiome_outcome.png" height="300" width="400">
+- <img src="../images/core_mic_successful.png" height="130" width="800">
+- <img src="../images/core_mic_unsuccessful.png" height="50" width="800">
 Core microbiome based on outcome (detecion= 0.001, prevalence = 0.2)
 - <img src="../images/core_microbiome_outcome2.png" height="300" width="400">
 ISA analysis based on age group and outcome (p= 0.05)
