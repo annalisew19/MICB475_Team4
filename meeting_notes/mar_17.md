@@ -38,7 +38,7 @@ Still have to do:
 - Taxonomic composition statistical analysis
 
 ##### Aim 2 (Michelle):
-Core microbiome based on outcome (detecion= 0.001, prevalence = 0.1)
+Core microbiome based on outcome (detecion= 0.001, prevalence = 0.1): only 1 ASV that is unique to unsuccessful core microbiome, and 6 ASVs unique to successful core microbiome
 - <img src="../images/core_microbiome_outcome.png" height="300" width="400">
 - <img src="../images/core_mic_successful.png" height="130" width="800">
 - <img src="../images/core_mic_unsuccessful.png" height="50" width="800">
@@ -51,8 +51,8 @@ ISA analysis based on age group and outcome (p= 0.1)
 
 
 ### Questions to ask/Issues
-
-
+- CONTRADICTS PAPER FINDING: core microbiome analysis showed that Lactobacillus was the only unique ASV in the unsuccessful group, and streptomyces (along with 5 unassigned) is among the 6 unique ASVs in the successful group.
+- 
 ### Meeting Notes
 
 
