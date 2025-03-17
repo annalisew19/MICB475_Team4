@@ -58,5 +58,21 @@ Still have to do:
 ### Meeting Notes
 - linear regression plots can replace shannon diversity graphs
 - for unassigned species, find the corresponding file (reps seq file) for blast
+- complete result analysis by next monday, so will have time to complete additional analysis
+- can start working on slides this week
+- slides need to be submitted on March 30th (with a background and why we did this study), and have one day to prepare.
+- have 10 min to ask the other team on the day of presentation, 10 min of presentation time, no speaker notes
+- presentation details will be released soon
+
+- taxonomic composition bar plots:
+    - go down one more level in order to tell difference
+    - don't need statistical test
+- alpha diversity:
+    - use linear regression code, one for shannon diversity, one for faith's pd
+    - also add shannon to meta data like what was done with pd
+
 
 ### Next Week
+- evelyn joins meeting next week
+- need to present result next week during the meeting
+
