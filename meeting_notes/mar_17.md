@@ -70,9 +70,12 @@ Still have to do:
 - alpha diversity:
     - use linear regression code, one for shannon diversity, one for faith's pd
     - also add shannon to meta data like what was done with pd
-
+- for core microbiome: 
+    - can look into the literature 
+    - can try to see if there are differences based on different outcomes (not just successful and unsuccessful)
+      
 
 ### Next Week
 - evelyn joins meeting next week
-- need to present result next week during the meeting
+- need to present result next week during the meeting, have all three aims ready
 
