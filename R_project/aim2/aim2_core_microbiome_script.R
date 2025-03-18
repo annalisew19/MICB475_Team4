@@ -121,23 +121,58 @@ first_venn <- ggVennDiagram(x = outcome_list_full)
 ggsave("venn_outcome", first_venn)
 
 
+# Get all core member lists
+all_lists <- list(no_pregnancy_list, 
+                  on_going_list, 
+                  live_birth_list, 
+                  biochem_preg_list, 
+                  clinical_miscarriage_list)
+names(all_lists) <- c("no_pregnancy", "ongoing_pregnancy", "live_birth", "biochem_pregnancy", "clinical_miscarriage")
+
+# Create a list to store the unique ASVs for each group
+unique_asvs_per_group <- list()
+
+# Loop through each group
+for (group_name in names(all_lists)) {
+  # Get the core members for the current group
+  current_group_list <- all_lists[[group_name]]
+  
+  # Get the core members for all OTHER groups
+  other_groups_lists <- all_lists[names(all_lists) != group_name]
+  other_groups_combined <- unlist(other_groups_lists)
+  
+  # Find the unique ASVs for the current group
+  unique_asvs <- setdiff(current_group_list, other_groups_combined)
+  
+  # Store the unique ASVs in the list
+  unique_asvs_per_group[[group_name]] <- unique_asvs
+}
+
+# Example: Print the unique ASVs for "No pregnancy"
+print(unique_asvs_per_group$no_pregnancy)
+
 # Get the taxonomy table from your original phyloseq object
 taxonomy <- as.data.frame(tax_table(ivf_phyloseq))
 
 # Add ASV names as rownames (makes subsetting easier)
 taxonomy$ASV <- rownames(taxonomy)
 
-# Get unique ASVs for successful outcome
-?setdiff
-
-#example
-#unique_successful_ASVs <- setdiff(successful_list, unsuccessful_list)
-
-# Get unique ASVs for unsuccessful outcome
-#example
-#unique_unsuccessful_ASVs <- setdiff(unsuccessful_list, successful_list)
-
 # Create tables of unique ASVs and their taxonomy
-#example
-#successful_taxa <- taxonomy[taxonomy$ASV %in% unique_successful_ASVs, ]
-#unsuccessful_taxa <- taxonomy[taxonomy$ASV %in% unique_unsuccessful_ASVs, ]
+for (group_name in names(unique_asvs_per_group)) 
+  {
+  unique_asvs <- unique_asvs_per_group[[group_name]]
+  tax_table <- taxonomy[taxonomy$ASV %in% unique_asvs, ]
+  assign(paste0(group_name, "_taxa"), tax_table) # Dynamically create variable names
+  print(paste("Taxa table for", group_name))
+  print(tax_table)
+  }
+
+no_pregnancy_taxa
+
+ongoing_pregnancy_taxa
+
+live_birth_taxa
+
+biochem_pregnancy_taxa
+
+clinical_miscarriage_taxa
