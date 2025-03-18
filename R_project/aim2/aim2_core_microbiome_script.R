@@ -93,11 +93,6 @@ tax_table(prune_taxa(live_birth_ASVs, ivf_phyloseq))
 tax_table(prune_taxa(biochem_preg_ASVs, ivf_phyloseq))
 tax_table(prune_taxa(clinical_miscarriage_ASVs, ivf_phyloseq))
 
-# can plot those ASVs' relative abundance
-prune_taxa(unsuccessful_ASVs,phyloseq_RA) %>% 
-  plot_bar(fill="Genus")
-#  facet_wrap(.~`outcome`, scales ="free") #x-axis don't depend on each other
-#less groups from antibiotic group
 
 # Notice that in this dataset, there are very few CORE microbiome members. This is common
 ### What if we wanted to make a Venn diagram of all the ASVs that showed up in each treatment?
@@ -157,22 +152,20 @@ taxonomy <- as.data.frame(tax_table(ivf_phyloseq))
 # Add ASV names as rownames (makes subsetting easier)
 taxonomy$ASV <- rownames(taxonomy)
 
-# Create tables of unique ASVs and their taxonomy
-for (group_name in names(unique_asvs_per_group)) 
-  {
+# Loop through the groups and create the tables
+taxa_tables_list <- list()
+
+for (group_name in names(unique_asvs_per_group)) {
   unique_asvs <- unique_asvs_per_group[[group_name]]
-  tax_table <- taxonomy[taxonomy$ASV %in% unique_asvs, ]
-  assign(paste0(group_name, "_taxa"), tax_table) # Dynamically create variable names
-  print(paste("Taxa table for", group_name))
-  print(tax_table)
-  }
+  taxa_table <- taxonomy[taxonomy$ASV %in% unique_asvs, ]
+  taxa_tables_list[[group_name]] <- taxa_table # Store the table in the list
+  
+}
 
-no_pregnancy_taxa
+# Access the tables from the list
+View(taxa_tables_list$no_pregnancy)
+View(taxa_tables_list$ongoing_pregnancy)
+View(taxa_tables_list$live_birth)
+View(taxa_tables_list$biochem_pregnancy)
+View(taxa_tables_list$clinical_miscarriage)
 
-ongoing_pregnancy_taxa
-
-live_birth_taxa
-
-biochem_pregnancy_taxa
-
-clinical_miscarriage_taxa
