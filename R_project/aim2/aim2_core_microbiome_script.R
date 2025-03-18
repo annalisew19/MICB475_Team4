@@ -7,10 +7,10 @@ library(ggVennDiagram)
 #### Load data ####
 load("ivf_phyloseq.RData") #unrarafied object, analysis take vary seq depth into consideration already
 
-#### "core" microbiome ####
-
 # Convert raw read counts to relative abundance. counts -> percentage, so more comparable
 phyloseq_RA <- transform_sample_counts(ivf_phyloseq, fun=function(x) x/sum(x))
+
+#### "core" microbiome of outcome (successful or unsuccesful) ####
 
 # Filter dataset by outcome
 phyloseq_successful_outcome <- subset_samples(phyloseq_RA, `outcome`=="successful")
@@ -64,3 +64,80 @@ unique_unsuccessful_ASVs <- setdiff(unsuccessful_list, successful_list)
 # Create tables of unique ASVs and their taxonomy
 successful_taxa <- taxonomy[taxonomy$ASV %in% unique_successful_ASVs, ]
 unsuccessful_taxa <- taxonomy[taxonomy$ASV %in% unique_unsuccessful_ASVs, ]
+
+
+#### "core" microbiome of disease ####
+
+# Filter dataset by disease
+phyloseq_no_pregnancy <- subset_samples(phyloseq_RA, `disease`=="No pregnancy")
+phyloseq_ongoing_preg <- subset_samples(phyloseq_RA, `disease`=="Ongoing pregnancy")
+phyloseq_live_birth <- subset_samples(phyloseq_RA, `disease`=="Live birth")
+phyloseq_biochem_preg <- subset_samples(phyloseq_RA, `disease`=="Biochemical pregnancy")
+phyloseq_clinical_miscarriage <- subset_samples(phyloseq_RA, `disease`=="Clinical miscarriage")
+
+# core microbiome calculation
+# detection: ASV must have relative abundance greater than 0; must be present to be considered
+# prevalence: ASV must be present in at least xx% of the sample
+#tried that the higehst prevalence is 0.4
+no_pregnancy_ASVs <- core_members(phyloseq_no_pregnancy, detection=0, prevalence = 0.4)
+ongoing_preg_ASVs <- core_members(phyloseq_ongoing_preg, detection=0, prevalence = 0.4)
+live_birth_ASVs <- core_members(phyloseq_live_birth, detection=0, prevalence = 0.4)
+biochem_preg_ASVs <- core_members(phyloseq_biochem_preg, detection=0, prevalence = 0.4)
+clinical_miscarriage_ASVs <- core_members(phyloseq_clinical_miscarriage, detection=0, prevalence = 0.4)
+
+
+# retrieve taxonomic classifications of the ASVs identified as core members
+tax_table(prune_taxa(no_pregnancy_ASVs, ivf_phyloseq))
+tax_table(prune_taxa(ongoing_preg_ASVs, ivf_phyloseq))
+tax_table(prune_taxa(live_birth_ASVs, ivf_phyloseq))
+tax_table(prune_taxa(biochem_preg_ASVs, ivf_phyloseq))
+tax_table(prune_taxa(clinical_miscarriage_ASVs, ivf_phyloseq))
+
+# can plot those ASVs' relative abundance
+prune_taxa(unsuccessful_ASVs,phyloseq_RA) %>% 
+  plot_bar(fill="Genus")
+#  facet_wrap(.~`outcome`, scales ="free") #x-axis don't depend on each other
+#less groups from antibiotic group
+
+# Notice that in this dataset, there are very few CORE microbiome members. This is common
+### What if we wanted to make a Venn diagram of all the ASVs that showed up in each treatment?
+#detection more tha 0.001 (0.1%)
+no_pregnancy_list <- core_members(phyloseq_no_pregnancy, detection=0.001, prevalence = 0.1)
+on_going_list <- core_members(phyloseq_ongoing_preg, detection=0.001, prevalence = 0.1)
+live_birth_list <- core_members(phyloseq_live_birth, detection=0.001, prevalence = 0.1)
+biochem_preg_list <- core_members(phyloseq_biochem_preg, detection=0.001, prevalence = 0.1)
+clinical_miscarriage_list <- core_members(phyloseq_clinical_miscarriage, detection=0.001, prevalence = 0.1)
+
+outcome_list_full <- list(no_preg = no_pregnancy_list, 
+                          on_going = on_going_list,
+                          live_birth = live_birth_list,
+                          biochem_preg = biochem_preg_list,
+                          clinical_miscarriage = clinical_miscarriage_list)
+
+
+# Create a Venn diagram using all the ASVs shared and unique to antibiotic users and non users
+first_venn <- ggVennDiagram(x = outcome_list_full)
+
+ggsave("venn_outcome", first_venn)
+
+
+# Get the taxonomy table from your original phyloseq object
+taxonomy <- as.data.frame(tax_table(ivf_phyloseq))
+
+# Add ASV names as rownames (makes subsetting easier)
+taxonomy$ASV <- rownames(taxonomy)
+
+# Get unique ASVs for successful outcome
+?setdiff
+
+#example
+#unique_successful_ASVs <- setdiff(successful_list, unsuccessful_list)
+
+# Get unique ASVs for unsuccessful outcome
+#example
+#unique_unsuccessful_ASVs <- setdiff(unsuccessful_list, successful_list)
+
+# Create tables of unique ASVs and their taxonomy
+#example
+#successful_taxa <- taxonomy[taxonomy$ASV %in% unique_successful_ASVs, ]
+#unsuccessful_taxa <- taxonomy[taxonomy$ASV %in% unique_unsuccessful_ASVs, ]
