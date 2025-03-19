@@ -44,7 +44,7 @@ outcome_list_full <- list(S= successful_list, U= unsuccessful_list)
 
 
 # Create a Venn diagram using all the ASVs shared and unique to antibiotic users and non users
-first_venn <- ggVennDiagram(x = outcome_list_full)
+first_venn_outcome <- ggVennDiagram(x = outcome_list_full)
 
 ggsave("venn_outcome", first_venn)
 
@@ -169,3 +169,88 @@ View(taxa_tables_list$live_birth)
 View(taxa_tables_list$biochem_pregnancy)
 View(taxa_tables_list$clinical_miscarriage)
 
+
+#### "core" microbiome of agegroup ####
+
+# 1. Define Age Groups (Make sure this matches YOUR actual age groups)
+#    AND make sure these match the levels in your age_group column!
+age_groups <- c("26-30", "31-35", "36-40", "41-45", "46-50")
+
+#     Run this and CHECK the output CAREFULLY.
+table(sample_data(phyloseq_RA)$age_group)
+
+
+# Filter dataset by age group (creating separate phyloseq objects)
+phyloseq_26_30 <- subset_samples(phyloseq_RA, age_group == "26-30")
+phyloseq_31_35 <- subset_samples(phyloseq_RA, age_group == "31-35")
+phyloseq_36_40 <- subset_samples(phyloseq_RA, age_group == "36-40")
+phyloseq_41_45 <- subset_samples(phyloseq_RA, age_group == "41-45")
+phyloseq_46_50 <- subset_samples(phyloseq_RA, age_group == "46-50")
+
+# Calculate core microbiome for each age group (higher prevalence)
+age_26_30_ASVs <- core_members(phyloseq_26_30, detection = 0, prevalence = 0.4)
+age_31_35_ASVs <- core_members(phyloseq_31_35, detection = 0, prevalence = 0.4)
+age_36_40_ASVs <- core_members(phyloseq_36_40, detection = 0, prevalence = 0.4)
+age_41_45_ASVs <- core_members(phyloseq_41_45, detection = 0, prevalence = 0.4)
+age_46_50_ASVs <- core_members(phyloseq_46_50, detection = 0, prevalence = 0.4)
+
+
+# Calculate core microbiome for each age group (lower prevalence - for Venn diagram)
+age_26_30_list <- core_members(phyloseq_26_30, detection = 0.001, prevalence = 0.1)
+age_31_35_list <- core_members(phyloseq_31_35, detection = 0.001, prevalence = 0.1)
+age_36_40_list <- core_members(phyloseq_36_40, detection = 0.001, prevalence = 0.1)
+age_41_45_list <- core_members(phyloseq_41_45, detection = 0.001, prevalence = 0.1)
+age_46_50_list <- core_members(phyloseq_46_50, detection = 0.001, prevalence = 0.1)
+
+# Create a list for the Venn diagram
+age_list_full <- list("26-30" = age_26_30_list,
+                      "31-35" = age_31_35_list,
+                      "36-40" = age_36_40_list,
+                      "41-45" = age_41_45_list,
+                      "46-50" = age_46_50_list)
+
+# Create and save the Venn diagram
+age_venn <- ggVennDiagram(x = age_list_full)
+ggsave("venn_age.png", age_venn) # Or .pdf
+
+
+
+# Get all core member lists
+all_age_lists <- list(age_26_30_list, age_31_35_list, age_36_40_list, age_41_45_list, age_46_50_list)
+names(all_age_lists) <- age_groups # Use the defined age_groups vector
+
+# Create a list to store the unique ASVs
+unique_asvs_per_age_group <- list()
+
+# Loop through each group
+for (group_name in names(all_age_lists)) {
+  current_group_list <- all_age_lists[[group_name]]
+  other_groups_lists <- all_age_lists[names(all_age_lists) != group_name]
+  other_groups_combined <- unlist(other_groups_lists)
+  unique_asvs <- setdiff(current_group_list, other_groups_combined)
+  unique_asvs_per_age_group[[group_name]] <- unique_asvs
+}
+
+
+# Get the taxonomy table
+taxonomy <- as.data.frame(tax_table(ivf_phyloseq))
+taxonomy$ASV <- rownames(taxonomy)
+
+# Create an empty list to store the tables
+taxa_tables_list <- list()
+
+# Loop and create tables
+for (group_name in names(unique_asvs_per_age_group)) {
+  unique_asvs <- unique_asvs_per_age_group[[group_name]]
+  taxa_table <- taxonomy[taxonomy$ASV %in% unique_asvs, ]
+  taxa_tables_list[[group_name]] <- taxa_table
+  write.csv(taxa_table, paste0("taxa_table_", group_name, ".csv")) # Save to CSV (optional)
+}
+
+
+# View the tables 
+View(taxa_tables_list$`26-30`)
+View(taxa_tables_list$`31-35`)
+View(taxa_tables_list$`36-40`)
+View(taxa_tables_list$`41-45`)
+View(taxa_tables_list$`46-50`)
