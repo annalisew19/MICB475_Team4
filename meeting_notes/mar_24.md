@@ -13,10 +13,10 @@ core microbiome analysis based on binned outcome (successful/unsucessful)
   <img src="../images/core_mic_successful.png" height="130" width="800">
   
   blast result for successful
-  - for 9e4c804464f77d50c7c59e8c7b9257a6: https://blast.ncbi.nlm.nih.gov/Blast.cgi
-  - for 1fde48464b31018bed6fe7a09a95af5a: https://blast.ncbi.nlm.nih.gov/Blast.cgi
-  - for 09a089478b7b99dcb7e80e48fdde2bb8: https://blast.ncbi.nlm.nih.gov/Blast.cgi
-  - for abd0fd4ccead365353f4022389f54f91: https://blast.ncbi.nlm.nih.gov/Blast.cgi
+  - for 9e4c804464f77d50c7c59e8c7b9257a6: https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&RID=XP9U1J9V016&ADV_VIEW=yes&CONFIG_DESCR=ClustMemNbr,ClustComn,Ds,Sc,Ms,Ts,Cov,Eval,Idnt,AccLen,Acc
+  - for 1fde48464b31018bed6fe7a09a95af5a: https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&RID=XP9UFFMV016&ADV_VIEW=yes&CONFIG_DESCR=ClustMemNbr,ClustComn,Ds,Sc,Ms,Ts,Cov,Eval,Idnt,AccLen,Acc
+  - for 09a089478b7b99dcb7e80e48fdde2bb8: https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&RID=XP9UWFBN016&ADV_VIEW=yes&CONFIG_DESCR=ClustMemNbr,ClustComn,Ds,Sc,Ms,Ts,Cov,Eval,Idnt,AccLen,Acc
+  - for abd0fd4ccead365353f4022389f54f91: https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Get&RID=XP9V4756016&ADV_VIEW=yes&CONFIG_DESCR=ClustMemNbr,ClustComn,Ds,Sc,Ms,Ts,Cov,Eval,Idnt,AccLen,Acc&ADV_VIEW=yes&CONFIG_DESCR=ClustMemNbr,ClustComn,Ds,Sc,Ms,Ts,Cov,Eval,Idnt,AccLen,Acc
 
 
   <img src="../images/core_mic_unsuccessful.png" height="50" width="800">
