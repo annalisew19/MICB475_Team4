@@ -3,7 +3,51 @@
 ### What we have done
 
 ##### Aim 1 (Annalise):
+Alpha Diversity:
 
+- Shannon's Diversity:
+  
+ <img src="../R_project/aim1/Shannon_linear_reg.png" height="400" width="500">
+
+ - Faith's PD:
+   
+ <img src="../R_project/aim1/Faith_PD_linear_reg.png" height="400" width="500">
+
+Beta Diversity:
+
+- Weighted Unifrac:
+  
+ <img src="../R_project/aim1/weighted_unifrac_pcoa_try2.png" height="400" width="500">
+
+ - Bray Curtis:
+   
+ <img src="../R_project/aim1/bray_curtis_pcoa_try1.png" height="400" width="500">
+ 
+ Taxonomic Analysis
+
+ - By phylum
+
+<img src="../R_project/aim1/tax_composition.png" height="800" width="600">
+
+ - By class
+
+<img src="../R_project/aim1/tax_composition_class.png" height="800" width="600">
+
+ - By order
+
+<img src="../R_project/aim1/tax_composition_order.png" height="800" width="600">
+
+ - By family
+
+<img src="../R_project/aim1/tax_composition_family.png" height="800" width="600">
+
+ - By genus
+
+<img src="../R_project/aim1/tax_composition_genus.png" height="800" width="600">
+
+ - By species
+
+<img src="../R_project/aim1/tax_composition_species.png" height="800" width="600">
 
 ##### Aim 2 (Michelle):
 core microbiome analysis based on binned outcome (successful/unsucessful)
