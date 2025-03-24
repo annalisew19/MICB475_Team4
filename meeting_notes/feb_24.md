@@ -60,7 +60,44 @@ Dividing up work:
 - Carleton Aim 2
 - Wren Aim 3
 
-## Future Reference
-- Dr. Evelyn Sun will be around for the last 2 meetings to help clarify/troubleshoot
-  - Be prepared for these last 2 meetings 
+## This Week's Meeting/Discussion Notes and Comments (25.03.24):
+- 1.1 Alpha Diversity
+  - **Change graphic method: Graph as scatterplot + best fit line + ribbon line plot**
+  - (Send email if we don't know how to graph it; Dr. Sun has the code);
+  - Expect to see NO correlation, but "at least it will be graphed correctly"
+- 1.2 Beta Diversity ("that's so weird")
+  - Teaching team (TT) is absolutely fascinated by the 4 clusters
+  - "Bray Curtis doesn't mean much to me" -> but it's based on weigt.. don't know if should rid of outliers
+- 1.3a Taxonomic Analysis ("that's so strange!" **"these are the strangest microbiomes I've ever seen"**)
+  - Actinobacter, Streptomyces ("it's found in soil" and "it makes antibiotics")... dominated by one
+  - "These women have very strange microbiomes" (might explain WHY they need IVF)
+- Aim 1 Overall trends: IVF women seem to have very strange microbiomes. ("It boggles the mind a little")
+- 2.1 Core
+  - The 26-30 have 7 unique (4/7 are lactobaccilus) vs 46-50 have 5
+  - Most shared microbiome... the ongoing group tends to have Bad species...
+  - Miscarriage ones have beneficial commensal while the ongoing pregnancy ones have pretty pathogenic ones...
+  - Loved the floral venn diagrams
+- Aim 2 Overall trends: "I feel like there are findings here, but can't tell what". "None of this is useable"
+  - "What does this mean?"
+  - TT unsurprised that ISA yields 
+- Overall comments:
+  - Significance of streptomyces -> "why is it everywhere?"
+ 
+##Future Directions
+- TT said that they do not expect much from functional analysis
+- Successful VS NOT successful > ages (although, there is something interesting happening in the older age groups)
+- TT proposed a simple **Machine Learning thing** -> random forest/RF (predicts which microbes are more important in whether someone has a successful pregnancy or not; "the code itself is actually quite simple")
+  - "there is a story in here"
 
+## Future Reference
+- Simple Machine Learning: RF
+  - Take OTU table, and train the AI to find patterns in the OTU, and apply model to (just) outcome and then outcome/age (create 2 separate tables)
+  - It creates decision trees for all patterns
+  - Take in individual OTUs... 70% of data used for training, 30% use for applied/testing
+    - Hopefully sample size is approximately equal across groups -> try randomly sampling to make more equal samples
+    - randomforest(Species~., data=train, proximity=TRUE)
+  - Output: ROC curve (accuracy of the model) +  termines importance of individual features (is it the streptomyces)
+  - Dr. Sun will send all the scripts; we can just copy her code as it is
+  - Reading an RF table: The closer the 3 lines are in the visualization, the better the model is
+  - varImpPlot( ) <- Dr. Sun suspects that this will yield the most meaningful graph for our data
+  - accuracy: 80-90 is good... anything between 60-70 is undecided.
