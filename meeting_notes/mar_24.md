@@ -77,7 +77,7 @@ core microbiome analysis based on age groups
 
 ## This Week's Meeting/Discussion Notes and Comments (25.03.24):
  1.1 Alpha Diversity
-  - ACTIONABLE: **Change graphic method: Graph as scatterplot + best fit line + ribbon line plot** 
+  - ACTIONABLE: **Change graphing method... Graph as scatterplot + best fit line + ribbon line plot** 
   - Actionable: (Send email if we don't know how to graph it; Dr. Sun has the code);
   - Expectation: Expect to see NO correlation, but "at least it will be graphed correctly"
 - 1.2 Beta Diversity ("that's so weird")
