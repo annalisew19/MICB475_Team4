@@ -77,32 +77,30 @@ core microbiome analysis based on age groups
 
 ## This Week's Meeting/Discussion Notes and Comments (25.03.24):
  1.1 Alpha Diversity
-  - **Change graphic method: Graph as scatterplot + best fit line + ribbon line plot** 
-  - (Send email if we don't know how to graph it; Dr. Sun has the code);
-  - Expect to see NO correlation, but "at least it will be graphed correctly"
+  - ACTIONABLE: **Change graphic method: Graph as scatterplot + best fit line + ribbon line plot** 
+  - Actionable: (Send email if we don't know how to graph it; Dr. Sun has the code);
+  - Expectation: Expect to see NO correlation, but "at least it will be graphed correctly"
 - 1.2 Beta Diversity ("that's so weird")
   - Teaching team (TT) is absolutely fascinated by the 4 clusters 
-  - Bray Curtis ... don't know if should rid of outliers
+  - Bray Curtis ... TT said that they don't know if we should rid of outliers
 - 1.3a Taxonomic Analysis ("that's so strange!" **"these are the strangest microbiomes I've ever seen"**)
-  - Actinobacter, Streptomyces ("it's found in soil" and "it makes antibiotics")... dominated by one 
-  - "These women have very strange microbiomes" (might explain WHY they need IVF)
-- Aim 1 Overall trends: IVF women seem to have very strange microbiomes. ("It boggles the mind a little")
+  - TT fascinated by Streptomyces ("it's found in soil" and "it makes antibiotics") 
+  - TT Comment: "These women have very strange microbiomes" (might explain WHY they need IVF)
+- Aim 1 Overall trends: "IVF women seem to have very strange microbiomes." ("It boggles the mind a little")
 - 2.1 Core
-  - The 26-30 have 7 unique (4/7 are lactobaccilus) vs 46-50 have 5
-  - Most shared microbiome... the ongoing group tends to have Bad species...
-  - Miscarriage ones have beneficial commensal while the ongoing pregnancy ones have pretty pathogenic ones...
-  - Dr. Sun loved the floral venn diagrams
+  - (The 26-30 have 7 unique (4/7 are lactobaccilus) vs 46-50 have 5)
+  - (Most shared microbiome... the ongoing group tends to have BAD species...)
+  - TT comment: Miscarriage ones have beneficial commensal while the ongoing pregnancy ones have pretty pathogenic ones...
+  - (Dr. Sun loved the floral venn diagrams)
 - Aim 2 Overall trends: "I feel like there are findings here, but can't tell what". "None of this is useable"
-  - "What does this mean?"
+  - Dr. Sun: "What does this mean!?"
   - TT unsurprised that ISA seems to yield no helpful info 
 - Overall comments:
   - Significance of streptomyces -> "why is it everywhere?"
 
-#Future Directions 
+#Future Directions (Expectations)
 - TT said that they do not expect much from functional analysis
-- Successful VS NOT successful > ages (although, there is something interesting happening in the older age groups) 
-- TT proposed a simple **Machine Learning thing** -> random forest/RF (predicts which microbes are more important in whether someone has a successful pregnancy or not; "the code itself is actually quite simple")
-  - "there is a story in here" 
+- Successful VS NOT successful > ages (although, there is something interesting happening in the older age groups)
 
 ##Future Directions: Presentation Slides/Figures
 - Slides:
@@ -121,5 +119,17 @@ core microbiome analysis based on age groups
   - TT proposed a simple **Machine Learning model** -> random forest/RF (predicts which microbes are more important in whether someone has a successful pregnancy or not; "the code itself is actually quite simple")
     - "there is a story in here"
 
-## Future Reference
+## Future Reference: Machine Learning (proposed by teaching team)
 - Simple Machine Learning: RF <- add this in (Dr. Sun will send it)
+  - random forest/RF (predicts which microbes are more important in whether someone has a successful pregnancy or not; "the code itself is actually quite simple")
+  - "there is a story in here" - 
+  - Take OTU table, and train the AI to find patterns in the OTU, and apply model to (just) outcome and then outcome/age (create 2 separate tables)
+  - It creates decision trees for all patterns
+  - Take in individual OTUs... 70% of data used for training, 30% use for applied/testing
+    - Hopefully sample size is approximately equal across groups -> try randomly sampling to make more equal samples
+    - randomforest(Species~., data=train, proximity=TRUE)
+  - Output: ROC curve (accuracy of the model) +  termines importance of individual features (is it the streptomyces)
+  - Dr. Sun will send all the scripts; we can just copy her code as it is
+  - Reading an RF table: The closer the 3 lines are in the visualization, the better the model is
+  - varImpPlot( ) <- Dr. Sun suspects that this will yield the most meaningful graph for our data
+  - accuracy: 80-90 is good... anything between 60-70 is undecided.
