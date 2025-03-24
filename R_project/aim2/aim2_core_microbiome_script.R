@@ -66,6 +66,13 @@ successful_taxa <- taxonomy[taxonomy$ASV %in% unique_successful_ASVs, ]
 unsuccessful_taxa <- taxonomy[taxonomy$ASV %in% unique_unsuccessful_ASVs, ]
 
 
+# Save successful_taxa to a CSV file
+write.csv(successful_taxa, file = "successful_taxa.csv", row.names = FALSE)
+
+# Save unsuccessful_taxa to a CSV file
+write.csv(unsuccessful_taxa, file = "unsuccessful_taxa.csv", row.names = FALSE)
+
+
 #### "core" microbiome of disease ####
 
 # Filter dataset by disease
@@ -159,7 +166,7 @@ for (group_name in names(unique_asvs_per_group)) {
   unique_asvs <- unique_asvs_per_group[[group_name]]
   taxa_table <- taxonomy[taxonomy$ASV %in% unique_asvs, ]
   taxa_tables_list[[group_name]] <- taxa_table # Store the table in the list
-  
+  write.csv(taxa_table, paste0("taxa_table_", group_name, ".csv")) # Save to CSV (optional)
 }
 
 # Access the tables from the list
@@ -254,3 +261,97 @@ View(taxa_tables_list$`31-35`)
 View(taxa_tables_list$`36-40`)
 View(taxa_tables_list$`41-45`)
 View(taxa_tables_list$`46-50`)
+
+
+#### "core" microbiome of agegroup + outcome ####
+
+
+#     Run this and CHECK the output CAREFULLY.
+table(sample_data(phyloseq_RA)$age_outcome)
+
+# 2. Define age_outcome groups (or create dynamically)
+# OPTION A: Manually define (if you know all the combinations)
+age_outcome_groups <- c("26-30_successful", "26-30_unsuccessful",
+                        "31-35_successful", "31-35_unsuccessful",
+                        "36-40_successful", "36-40_unsuccessful",
+                        "41-45_successful", "41-45_unsuccessful",
+                        "46-50_successful", "46-50_unsuccessful")
+
+
+#Create empty list for phyloseq objects
+phyloseq_objects <- list()
+
+#Create a phyloseq object for each group
+for (group in age_outcome_groups){
+  phyloseq_objects[[group]] <- subset_samples(phyloseq_RA, age_outcome == group)
+}
+
+# Calculate core microbiome for each age-outcome group (higher prevalence)
+core_asvs_high_prevalence <- list()
+for (group in age_outcome_groups){
+  core_asvs_high_prevalence[[group]] <- core_members(phyloseq_objects[[group]], detection = 0, prevalence = 0.4)
+}
+
+# Retrieve taxonomic classifications (optional - for checking)
+for (group in age_outcome_groups) {
+  tax_table(prune_taxa(core_asvs_high_prevalence[[group]], ivf_phyloseq))
+}
+
+# Calculate core microbiome for each age-outcome group (lower prevalence - for Venn diagram)
+core_asvs_low_prevalence <- list()
+for (group in age_outcome_groups){
+  core_asvs_low_prevalence[[group]] <- core_members(phyloseq_objects[[group]], detection = 0.001, prevalence = 0.1)
+}
+
+# Create a list for the Venn diagram
+# You *might* not want a Venn diagram with ALL age-outcome groups (too many!)
+# Consider creating Venn diagrams for *subsets* of groups (e.g., within each age group)
+
+
+# Get all core member lists
+all_age_outcome_lists <- core_asvs_low_prevalence # Use the low-prevalence core ASVs
+names(all_age_outcome_lists) <- age_outcome_groups
+
+# Create a list to store the unique ASVs
+unique_asvs_per_age_outcome_group <- list()
+
+# Loop through each group
+for (group_name in names(all_age_outcome_lists)) {
+  current_group_list <- all_age_outcome_lists[[group_name]]
+  other_groups_lists <- all_age_outcome_lists[names(all_age_outcome_lists) != group_name]
+  other_groups_combined <- unlist(other_groups_lists)
+  unique_asvs <- setdiff(current_group_list, other_groups_combined)
+  unique_asvs_per_age_outcome_group[[group_name]] <- unique_asvs
+}
+
+
+# Get the taxonomy table
+taxonomy <- as.data.frame(tax_table(ivf_phyloseq))
+taxonomy$ASV <- rownames(taxonomy)
+
+# Create an empty list to store the tables
+taxa_tables_list <- list()
+
+# Loop and create tables
+for (group_name in names(unique_asvs_per_age_outcome_group)) {
+  unique_asvs <- unique_asvs_per_age_outcome_group[[group_name]]
+  taxa_table <- taxonomy[taxonomy$ASV %in% unique_asvs, ]
+  taxa_tables_list[[group_name]] <- taxa_table
+  write.csv(taxa_table, paste0("taxa_table_", group_name, ".csv")) # Save to CSV (optional)
+  
+}
+
+
+# View the tables
+View(taxa_tables_list$`26-30_successful`)
+View(taxa_tables_list$`26-30_unsuccessful`)
+View(taxa_tables_list$`31-35_successful`)
+View(taxa_tables_list$`31-35_unsuccessful`)
+View(taxa_tables_list$`36-40_successful`)
+View(taxa_tables_list$`36-40_unsuccessful`)
+View(taxa_tables_list$`41-45_successful`)
+View(taxa_tables_list$`41-45_unsuccessful`)
+View(taxa_tables_list$`46-50_successful`)
+View(taxa_tables_list$`46-50_unsuccessful`)
+
+
