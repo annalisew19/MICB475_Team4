@@ -90,7 +90,7 @@ Dividing up work:
   - "there is a story in here"
 
 ## Future Reference
-- Simple Machine Learning: RF
+- Simple Machine Learning: RF <- add this in (Dr. Sun will send it)
   - Take OTU table, and train the AI to find patterns in the OTU, and apply model to (just) outcome and then outcome/age (create 2 separate tables)
   - It creates decision trees for all patterns
   - Take in individual OTUs... 70% of data used for training, 30% use for applied/testing
@@ -99,5 +99,6 @@ Dividing up work:
   - Output: ROC curve (accuracy of the model) +  termines importance of individual features (is it the streptomyces)
   - Dr. Sun will send all the scripts; we can just copy her code as it is
   - Reading an RF table: The closer the 3 lines are in the visualization, the better the model is
-  - varImpPlot( ) <- Dr. Sun suspects that this will yield the most meaningful graph for our data
-  - accuracy: 80-90 is good... anything between 60-70 is undecided.
+  - varImpPlot( ) <- Dr. Sun suspects that this will yield the most meaningful function/graph for our data
+  - Interpreting accuracy: 80-90 is good... anything between 60-70 is undecided.
+    - Teaching team is still settling this.
