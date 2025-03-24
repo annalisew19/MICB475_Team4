@@ -62,7 +62,7 @@ Dividing up work:
 
 ## This Week's Meeting/Discussion Notes and Comments (25.03.24):
 - 1.1 Alpha Diversity
-  - **Change graphic method: Graph as scatterplot + best fit line + ribbon line plot**
+  - **Change graphic method: Graph as scatterplot + best fit line + ribbon line plot?**
   - (Send email if we don't know how to graph it; Dr. Sun has the code);
   - Expect to see NO correlation, but "at least it will be graphed correctly"
 - 1.2 Beta Diversity ("that's so weird")
@@ -83,11 +83,22 @@ Dividing up work:
 - Overall comments:
   - Significance of streptomyces -> "why is it everywhere?"
  
-##Future Directions
-- TT said that they do not expect much from functional analysis
-- Successful VS NOT successful > ages (although, there is something interesting happening in the older age groups)
-- TT proposed a simple **Machine Learning thing** -> random forest/RF (predicts which microbes are more important in whether someone has a successful pregnancy or not; "the code itself is actually quite simple")
-  - "there is a story in here"
+##Future Directions: Presentation Slides/Figures
+- Slides:
+  - Workshot the **title**... something like "age does NOT affect..."
+    - dig into how age/success are independent and how there is no effect?
+  - **Figure 1:** change alpha diversity metrics... **Graph as scatterplot + best fit line + ribbon line plot**
+  - **Figure 2:** taxa bar plots... let's keep it for now. JUST show genera (that one alone is sufficient).
+    - Age group in outer columns??? 5 (top) and 5(bottom)
+  - **Figure 3**: include core microbiome (2 panels: 1 successful VS not,
+    - 3 panels: A = successful vs not, B = subset to only include age group in successful group, C = unsuccessful for each age group... 2 flower plots and 1 regular
+  - **Figure 4:** reserve for picrust (let's see what we get; only do **successful vs unsuccessful**)
+  - **Figure 5:** reserve for machine learning
+- Notes
+  - TT said that they do not expect much from functional analysis
+  - Successful VS NOT successful > ages (although, there is something interesting happening in the older age groups)
+  - TT proposed a simple **Machine Learning model** -> random forest/RF (predicts which microbes are more important in whether someone has a successful pregnancy or not; "the code itself is actually quite simple")
+    - "there is a story in here"
 
 ## Future Reference
 - Simple Machine Learning: RF <- add this in (Dr. Sun will send it)
