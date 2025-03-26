@@ -231,7 +231,7 @@ faith_pd_lr <- ggplot(data, aes(x = age_group, y = PD, color = outcome)) +
   geom_smooth(method = "lm", se = TRUE, aes(fill = outcome), alpha = 0.2) +  # Best fit line + confidence ribbon
   labs(title = "Faith’s PD Across Age for Different IVF Outcomes",
        x = "Age",
-       y = "PD",
+       y = "Faith's PD",
        color = "Outcome",
        fill = "Outcome") +
   theme_minimal()
