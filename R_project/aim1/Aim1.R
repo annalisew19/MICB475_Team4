@@ -170,7 +170,7 @@ data$predicted <- predict(lme_model, re.form = ~ (1 | outcome))  # Include rando
 summary(lme_model)
 
 # Plot: Regression lines for each outcome
-shannon_lr <- ggplot(data, aes(x = age_group, y = Shannon, color = outcome)) +
+shannon_lr <- ggplot(data, aes(x = AGE, y = Shannon, color = outcome)) +
   geom_point(alpha = 0.6) +  
   geom_smooth(method = "lm", se = TRUE, aes(fill = outcome), alpha = 0.2) + 
   labs(title = "Shannon Diversity Across Age for Different IVF Outcomes",
@@ -226,7 +226,7 @@ data$predicted <- predict(lme_model, re.form = ~ (1 | outcome))  # Include rando
 summary(lme_model)
 
 # Plot: Regression lines for each outcome
-faith_pd_lr <- ggplot(data, aes(x = age_group, y = PD, color = outcome)) +
+faith_pd_lr <- ggplot(data, aes(x = AGE, y = PD, color = outcome)) +
   geom_point(alpha = 0.6) +  # Scatterplot
   geom_smooth(method = "lm", se = TRUE, aes(fill = outcome), alpha = 0.2) +  # Best fit line + confidence ribbon
   labs(title = "Faith’s PD Across Age for Different IVF Outcomes",
