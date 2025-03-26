@@ -299,7 +299,7 @@ adonis2(dm_braycurtis ~ age_group*outcome, data=samp_dat_wdiv)
 
 #### Taxonomic Analysis ####
 # Plot bar plot of taxonomy
-plot_bar(ivf_rare, fill = "Order")
+plot_bar(ivf_rare, fill = "Genus")
 
 # Convert absolute number to relative abundance 
 ivf_RA <- transform_sample_counts(ivf_rare, function(x) x/sum(x))
@@ -324,12 +324,18 @@ ivf_species <- tax_glom(ivf_RA, taxrank = "Species", NArm = FALSE)
 
 # Ensure 'age_outcome' metadata column is still present in metadata after tax_glom
 sample_data(ivf_species)$age_outcome <- sample_data(ivf_rare)$age_outcome
+sample_data(ivf_genus)$outcome <- factor(sample_data(ivf_genus)$outcome, 
+                                         levels = c("successful", "unsuccessful"),
+                                         labels = c("Successful", "Unsuccessful"))
 
 # Plot bar plot
-tax_bar_plot <- plot_bar(ivf_species, fill = "Species") +
-  facet_wrap(.~age_outcome, scales = "free_x") +
+tax_bar_plot <- plot_bar(ivf_genus, fill = "Genus") +
+  facet_wrap(outcome ~ age_group, nrow = 2, ncol = 5, scales = "free_x") +  
   labs(x = "Samples", y = "Relative Abundance", title = "Taxonomic Composition by Age & Outcome") +
-  scale_y_continuous(labels = scales::percent)
+  scale_y_continuous(labels = scales::percent) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 8),
+        strip.text = element_text(face = "bold", size = 12))
 
 ggsave("tax_composition_species.png",
        tax_bar_plot,
