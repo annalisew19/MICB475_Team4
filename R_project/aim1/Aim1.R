@@ -337,7 +337,7 @@ tax_bar_plot <- plot_bar(ivf_genus, fill = "Genus") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 8),
         strip.text = element_text(face = "bold", size = 12))
 
-ggsave("tax_composition_species.png",
+ggsave("tax_composition_genus.png",
        tax_bar_plot,
        height = 10,
        width = 12)
