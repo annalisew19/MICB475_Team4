@@ -21,8 +21,8 @@ phyloseq_unsuccesful_outcome <- subset_samples(phyloseq_RA, `outcome`=="unsucces
   # detection: ASV must have relative abundance greater than 0; must be present to be considered
   # prevalence: ASV must be present in at least xx% of the sample
   #tried that the higehst prevalence is 0.4
-successful_ASVs <- core_members(phyloseq_RA, detection=0, prevalence = 0.4)
-unsuccessful_ASVs <- core_members(phyloseq_RA, detection=0, prevalence = 0.4)
+successful_ASVs <- core_members(phyloseq_RA, detection=0, prevalence = 0.1)
+unsuccessful_ASVs <- core_members(phyloseq_RA, detection=0, prevalence = 0.1)
 
 # retrieve taxonomic classifications of the ASVs identified as core members
 tax_table(prune_taxa(successful_ASVs, ivf_phyloseq))
@@ -88,11 +88,11 @@ phyloseq_clinical_miscarriage <- subset_samples(phyloseq_RA, `disease`=="Clinica
 # detection: ASV must have relative abundance greater than 0; must be present to be considered
 # prevalence: ASV must be present in at least xx% of the sample
 #tried that the higehst prevalence is 0.4
-no_pregnancy_ASVs <- core_members(phyloseq_no_pregnancy, detection=0, prevalence = 0.4)
-ongoing_preg_ASVs <- core_members(phyloseq_ongoing_preg, detection=0, prevalence = 0.4)
-live_birth_ASVs <- core_members(phyloseq_live_birth, detection=0, prevalence = 0.4)
-biochem_preg_ASVs <- core_members(phyloseq_biochem_preg, detection=0, prevalence = 0.4)
-clinical_miscarriage_ASVs <- core_members(phyloseq_clinical_miscarriage, detection=0, prevalence = 0.4)
+no_pregnancy_ASVs <- core_members(phyloseq_no_pregnancy, detection=0, prevalence = 0.1)
+ongoing_preg_ASVs <- core_members(phyloseq_ongoing_preg, detection=0, prevalence = 0.1)
+live_birth_ASVs <- core_members(phyloseq_live_birth, detection=0, prevalence = 0.1)
+biochem_preg_ASVs <- core_members(phyloseq_biochem_preg, detection=0, prevalence = 0.1)
+clinical_miscarriage_ASVs <- core_members(phyloseq_clinical_miscarriage, detection=0, prevalence = 0.1)
 
 
 # retrieve taxonomic classifications of the ASVs identified as core members
@@ -197,11 +197,11 @@ s_phyloseq_41_45 <- subset_samples(phyloseq_successful_outcome, age_group == "41
 s_phyloseq_46_50 <- subset_samples(phyloseq_successful_outcome, age_group == "46-50")
 
 # Calculate core microbiome for each age group (higher prevalence)
-s_age_26_30_ASVs <- core_members(s_phyloseq_26_30, detection = 0, prevalence = 0.4)
-s_age_31_35_ASVs <- core_members(s_phyloseq_31_35, detection = 0, prevalence = 0.4)
-s_age_36_40_ASVs <- core_members(s_phyloseq_36_40, detection = 0, prevalence = 0.4)
-s_age_41_45_ASVs <- core_members(s_phyloseq_41_45, detection = 0, prevalence = 0.4)
-s_age_46_50_ASVs <- core_members(s_phyloseq_46_50, detection = 0, prevalence = 0.4)
+s_age_26_30_ASVs <- core_members(s_phyloseq_26_30, detection = 0, prevalence = 0.1)
+s_age_31_35_ASVs <- core_members(s_phyloseq_31_35, detection = 0, prevalence = 0.1)
+s_age_36_40_ASVs <- core_members(s_phyloseq_36_40, detection = 0, prevalence = 0.1)
+s_age_41_45_ASVs <- core_members(s_phyloseq_41_45, detection = 0, prevalence = 0.1)
+s_age_46_50_ASVs <- core_members(s_phyloseq_46_50, detection = 0, prevalence = 0.1)
 
 
 # Calculate core microbiome for each age group (lower prevalence - for Venn diagram)
