@@ -1,5 +1,5 @@
-"","Domain","Phylum","Class","Order","Family","Genus","Species","ASV"
-"77d14d1c772b51a16e5983d6bca87c15","d__Bacteria","p__Firmicutes","c__Bacilli","o__Lactobacillales","f__Lactobacillaceae","g__Lactobacillus",NA,"77d14d1c772b51a16e5983d6bca87c15"
-"ab9a72d94585ed02ee38ca889c46126a","d__Bacteria",NA,NA,NA,NA,NA,NA,"ab9a72d94585ed02ee38ca889c46126a"
-"9b40888adb8765b9f510a40561d38ccc","Unassigned",NA,NA,NA,NA,NA,NA,"9b40888adb8765b9f510a40561d38ccc"
-"ca611c5615850902549e71d76db515c7","Unassigned",NA,NA,NA,NA,NA,NA,"ca611c5615850902549e71d76db515c7"
+,Domain,Phylum,Class,Order,Family,Genus,Species,ASV,,,,
+77d14d1c772b51a16e5983d6bca87c15,d__Bacteria,p__Firmicutes,c__Bacilli,o__Lactobacillales,f__Lactobacillaceae,g__Lactobacillus,NA,77d14d1c772b51a16e5983d6bca87c15,,,,
+ab9a72d94585ed02ee38ca889c46126a,d__Bacteria,NA,NA,NA,NA,NA,NA,ab9a72d94585ed02ee38ca889c46126a,,,,"unidentified, non bac"
+9b40888adb8765b9f510a40561d38ccc,Unassigned,NA,NA,NA,NA,NA,NA,9b40888adb8765b9f510a40561d38ccc,,,,"unidentified, non bac"
+ca611c5615850902549e71d76db515c7,Unassigned,NA,NA,NA,NA,NA,NA,ca611c5615850902549e71d76db515c7,,,,gardnerella
