@@ -2,13 +2,14 @@
 library(tidyverse)
 library(phyloseq)
 library(microbiome)
+
 library(ggVennDiagram)
 
 #### Load data ####
-load("ivf_phyloseq.RData") #unrarafied object, analysis take vary seq depth into consideration already
+load("ivf_final.RData") #unrarafied object, analysis take vary seq depth into consideration already
 
 # Convert raw read counts to relative abundance. counts -> percentage, so more comparable
-phyloseq_RA <- transform_sample_counts(ivf_phyloseq, fun=function(x) x/sum(x))
+phyloseq_RA <- transform_sample_counts(ivf_final, fun=function(x) x/sum(x))
 
 #### "core" microbiome of outcome (successful or unsuccesful) ####
 

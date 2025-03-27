@@ -11,7 +11,6 @@ library(DESeq2)
 library(ape)
 library(indicspecies)
 
-
 #### Binning Reproductive outcome and age ####
 
 # Load metadata
@@ -47,11 +46,10 @@ ivf_meta_updated <- ivf_meta_updated %>%
                          labels = c("26-30", "31-35", "36-40", "41-45", "46-50"),
                          right = TRUE)) # specifies that the right age boundary should be included
 
-#create a new column combining age group and outcome
+
+# Create a new metadata column that combines age_group and outcome in age_outcome
 ivf_meta_updated <- ivf_meta_updated %>%
   mutate(age_outcome = paste(age_group, outcome, sep = "_"))
-
-
 
 #### Creating phyloseq object ####
 # Load feature table, taxonomy, tree 
@@ -97,13 +95,20 @@ class(TAX)
 ## Create phyloseq object
 ivf_phyloseq <- phyloseq(OTU, META, TAX, ivf_phylotree)
 
-save(ivf_phyloseq, file="ivf_phyloseq.RData")
+## Filtering and Rarefying phyloseq object
+# Remove non-bacterial sequences, if any
+ivf_final <- subset_taxa(ivf_phyloseq, Domain == "d__Bacteria"
+                         & Class!="c__Chloroplast"
+                         & Family !="f_Mitochondria")
+
+
+save(ivf_final, file="ivf_final.RData")
 
 #### Indicator Speices Analysis/Taxa Analysis ####
 
 # group OTUs to the genus level
 #group data based on specific taxanomic rank: Genus, don't want to remove NA
-mpt_genus <- tax_glom(ivf_phyloseq, "Genus", NArm = FALSE)
+mpt_genus <- tax_glom(ivf_final, "Genus", NArm = FALSE)
 #convert counts from otu table from absolute to relative
 mpt_genus_RA <- transform_sample_counts(mpt_genus, fun=function(x) x/sum(x))
 
