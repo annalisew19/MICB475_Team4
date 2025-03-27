@@ -334,34 +334,21 @@ u_taxa_tables_list <- list()
 
 # Loop and create tables
 for (group_name in names(u_unique_asvs_per_age_group)) {
-  s_unique_asvs <- s_unique_asvs_per_age_group[[group_name]]
-  s_taxa_table <- s_taxonomy[s_taxonomy$ASV %in% s_unique_asvs, ]
-  s_taxa_tables_list[[group_name]] <- s_taxa_table
-  write.csv(s_taxa_table, paste0("s_taxa_table_", group_name, ".csv")) # Save to CSV (optional)
+  u_unique_asvs <- u_unique_asvs_per_age_group[[group_name]]
+  u_taxa_table <- u_taxonomy[u_taxonomy$ASV %in% u_unique_asvs, ]
+  u_taxa_tables_list[[group_name]] <- u_taxa_table
+  write.csv(u_taxa_table, paste0("u_taxa_table_", group_name, ".csv")) # Save to CSV (optional)
 }
 
 
 # View the tables 
-View(s_taxa_tables_list$`26-30`)
-View(s_taxa_tables_list$`31-35`)
-View(s_taxa_tables_list$`36-40`)
-View(s_taxa_tables_list$`41-45`)
-View(s_taxa_tables_list$`46-50`)
+View(u_taxa_tables_list$`26-30`)
+View(u_taxa_tables_list$`31-35`)
+View(u_taxa_tables_list$`36-40`)
+View(u_taxa_tables_list$`41-45`)
+View(u_taxa_tables_list$`46-50`)
 
 
-### core microbiome of age group subset to successful outcome
-successful_age_group_names <- paste0(age_groups, "_successful")
-venn_list_successful_by_age <- unique_asvs_per_age_group[successful_age_group_names]
-names(venn_list_successful_by_age) <- age_groups
-venn_success_by_age <- ggVennDiagram(venn_list_successful_by_age) +
-  ggtitle("Core Microbiome: Successful Outcomes Across Age Groups") 
-
-### core microbiome of age group subset to UNsuccessful outcome
-unsuccessful_age_group_names <- paste0(age_groups, "_successful")
-venn_list_successful_by_age <- unique_asvs_per_age_group[successful_age_group_names]
-names(venn_list_successful_by_age) <- age_groups
-venn_success_by_age <- ggVennDiagram(venn_list_successful_by_age) +
-  ggtitle("Core Microbiome: Successful Outcomes Across Age Groups") 
 #### "core" microbiome of agegroup + outcome ####
 
 
