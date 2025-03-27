@@ -21,8 +21,8 @@ phyloseq_unsuccesful_outcome <- subset_samples(phyloseq_RA, `outcome`=="unsucces
   # detection: ASV must have relative abundance greater than 0; must be present to be considered
   # prevalence: ASV must be present in at least xx% of the sample
   #tried that the higehst prevalence is 0.4
-successful_ASVs <- core_members(phyloseq_successful_outcome, detection=0, prevalence = 0.4)
-unsuccessful_ASVs <- core_members(phyloseq_unsuccesful_outcome, detection=0, prevalence = 0.4)
+successful_ASVs <- core_members(phyloseq_RA, detection=0, prevalence = 0.4)
+unsuccessful_ASVs <- core_members(phyloseq_RA, detection=0, prevalence = 0.4)
 
 # retrieve taxonomic classifications of the ASVs identified as core members
 tax_table(prune_taxa(successful_ASVs, ivf_phyloseq))
@@ -38,8 +38,8 @@ prune_taxa(unsuccessful_ASVs,phyloseq_RA) %>%
 # Notice that in this dataset, there are very few CORE microbiome members. This is common
 ### What if we wanted to make a Venn diagram of all the ASVs that showed up in each treatment?
  #detection more tha 0.001 (0.1%)
-successful_list <- core_members(phyloseq_successful_outcome, detection=0.001, prevalence = 0.10)
-unsuccessful_list <- core_members(phyloseq_unsuccesful_outcome, detection=0.001, prevalence = 0.10)
+successful_list <- core_members(phyloseq_successful_outcome, detection=0.001, prevalence = 0.1)
+unsuccessful_list <- core_members(phyloseq_unsuccesful_outcome, detection=0.001, prevalence = 0.1)
 
 outcome_list_full <- list(S= successful_list, U= unsuccessful_list)
 
