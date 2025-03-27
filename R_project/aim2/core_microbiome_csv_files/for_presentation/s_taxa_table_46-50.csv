@@ -1,12 +1,12 @@
-"","Domain","Phylum","Class","Order","Family","Genus","Species","ASV"
-"8f68ff83fb04e0889c8e8b01da3bc80f","d__Bacteria","p__Actinobacteriota","c__Actinobacteria","o__Streptomycetales","f__Streptomycetaceae","g__Streptomyces",NA,"8f68ff83fb04e0889c8e8b01da3bc80f"
-"1957223411400526eb663f24f669c1ad","d__Bacteria","p__Firmicutes","c__Negativicutes","o__Veillonellales-Selenomonadales","f__Veillonellaceae","g__Veillonella",NA,"1957223411400526eb663f24f669c1ad"
-"1095c13c343ffcb7d77c36b904c13f89","d__Bacteria","p__Proteobacteria","c__Alphaproteobacteria","o__Rhodobacterales","f__Rhodobacteraceae",NA,NA,"1095c13c343ffcb7d77c36b904c13f89"
-"74b5cf002aa2fb2673fe2ca4bd040bfb","d__Bacteria",NA,NA,NA,NA,NA,NA,"74b5cf002aa2fb2673fe2ca4bd040bfb"
-"8df5a393c947682775c01c4a1a13a1b9","Unassigned",NA,NA,NA,NA,NA,NA,"8df5a393c947682775c01c4a1a13a1b9"
-"5f025a510777f545775785aa81f5a89f","Unassigned",NA,NA,NA,NA,NA,NA,"5f025a510777f545775785aa81f5a89f"
-"4d625699fb215a960b733024b275f815","Unassigned",NA,NA,NA,NA,NA,NA,"4d625699fb215a960b733024b275f815"
-"dc19c008d92c44e3a381abb3b44e1048","Unassigned",NA,NA,NA,NA,NA,NA,"dc19c008d92c44e3a381abb3b44e1048"
-"3d6583231d3656b44178bd7cf80c49fe","Unassigned",NA,NA,NA,NA,NA,NA,"3d6583231d3656b44178bd7cf80c49fe"
-"82ce1d4b455781eb42aa295aeac6dcdb","d__Bacteria",NA,NA,NA,NA,NA,NA,"82ce1d4b455781eb42aa295aeac6dcdb"
-"00da7f49bf0f795b67ac4212826ea217","Unassigned",NA,NA,NA,NA,NA,NA,"00da7f49bf0f795b67ac4212826ea217"
+,Domain,Phylum,Class,Order,Family,Genus,Species,ASV,,,,,
+8f68ff83fb04e0889c8e8b01da3bc80f,d__Bacteria,p__Actinobacteriota,c__Actinobacteria,o__Streptomycetales,f__Streptomycetaceae,g__Streptomyces,NA,8f68ff83fb04e0889c8e8b01da3bc80f,,,,,
+1957223411400526eb663f24f669c1ad,d__Bacteria,p__Firmicutes,c__Negativicutes,o__Veillonellales-Selenomonadales,f__Veillonellaceae,g__Veillonella,NA,1957223411400526eb663f24f669c1ad,,,,,
+1095c13c343ffcb7d77c36b904c13f89,d__Bacteria,p__Proteobacteria,c__Alphaproteobacteria,o__Rhodobacterales,f__Rhodobacteraceae,NA,NA,1095c13c343ffcb7d77c36b904c13f89,,,,,
+74b5cf002aa2fb2673fe2ca4bd040bfb,d__Bacteria,NA,NA,NA,NA,NA,NA,74b5cf002aa2fb2673fe2ca4bd040bfb,,,,"unidentified, non bac",
+8df5a393c947682775c01c4a1a13a1b9,Unassigned,NA,NA,NA,NA,NA,NA,8df5a393c947682775c01c4a1a13a1b9,,,,uncultured bacterium,
+5f025a510777f545775785aa81f5a89f,Unassigned,NA,NA,NA,NA,NA,NA,5f025a510777f545775785aa81f5a89f,,,,"unidentified, non bac",
+4d625699fb215a960b733024b275f815,Unassigned,NA,NA,NA,NA,NA,NA,4d625699fb215a960b733024b275f815,,,,"unidentified, non bac",
+dc19c008d92c44e3a381abb3b44e1048,Unassigned,NA,NA,NA,NA,NA,NA,dc19c008d92c44e3a381abb3b44e1048,,,,uncultured bacterium,
+3d6583231d3656b44178bd7cf80c49fe,Unassigned,NA,NA,NA,NA,NA,NA,3d6583231d3656b44178bd7cf80c49fe,,,,"unidentified, non bac",
+82ce1d4b455781eb42aa295aeac6dcdb,d__Bacteria,NA,NA,NA,NA,NA,NA,82ce1d4b455781eb42aa295aeac6dcdb,,,,"unidentified, non bac",
+00da7f49bf0f795b67ac4212826ea217,Unassigned,NA,NA,NA,NA,NA,NA,00da7f49bf0f795b67ac4212826ea217,,,,uncultured bacterium,
