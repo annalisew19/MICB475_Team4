@@ -158,7 +158,9 @@ sample_data(ivf_rare)$Shannon <- alphadiv$Shannon
 data <- samp_dat_wdiv
 
 # Convert 'outcome' to a factor (if it's not already)
-data$outcome <- as.factor(data$outcome)
+data$outcome <- factor(data$outcome, levels = c("successful", "unsuccessful"), 
+                       labels = c("Successful", "Unsuccessful"))
+
 
 # Fit the Linear Mixed Effects Model (LME)
 lme_model <- lmer(Shannon ~ age_group + (1 | outcome), data = data)
@@ -214,7 +216,8 @@ samp_dat_wdiv <- data.frame(samp_dat, alphadiv)
 data <- samp_dat_wdiv
 
 # Convert 'outcome' to a factor (if it's not already)
-data$outcome <- as.factor(data$outcome)
+data$outcome <- factor(data$outcome, levels = c("successful", "unsuccessful"), 
+                       labels = c("Successful", "Unsuccessful"))
 
 # Fit the Linear Mixed Effects Model (LME)
 lme_model <- lmer(PD ~ age_group + (1 | outcome), data = data)
