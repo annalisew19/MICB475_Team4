@@ -197,11 +197,11 @@ s_phyloseq_41_45 <- subset_samples(phyloseq_successful_outcome, age_group == "41
 s_phyloseq_46_50 <- subset_samples(phyloseq_successful_outcome, age_group == "46-50")
 
 # Calculate core microbiome for each age group (higher prevalence)
-s_age_26_30_ASVs <- core_members(s_phyloseq_26_30, detection = 0, prevalence = 0.1)
-s_age_31_35_ASVs <- core_members(s_phyloseq_31_35, detection = 0, prevalence = 0.1)
-s_age_36_40_ASVs <- core_members(s_phyloseq_36_40, detection = 0, prevalence = 0.1)
-s_age_41_45_ASVs <- core_members(s_phyloseq_41_45, detection = 0, prevalence = 0.1)
-s_age_46_50_ASVs <- core_members(s_phyloseq_46_50, detection = 0, prevalence = 0.1)
+s_age_26_30_ASVs <- core_members(s_phyloseq_26_30, detection = 0, prevalence = 0.4)
+s_age_31_35_ASVs <- core_members(s_phyloseq_31_35, detection = 0, prevalence = 0.4)
+s_age_36_40_ASVs <- core_members(s_phyloseq_36_40, detection = 0, prevalence = 0.4)
+s_age_41_45_ASVs <- core_members(s_phyloseq_41_45, detection = 0, prevalence = 0.4)
+s_age_46_50_ASVs <- core_members(s_phyloseq_46_50, detection = 0, prevalence = 0.4)
 
 
 # Calculate core microbiome for each age group (lower prevalence - for Venn diagram)
