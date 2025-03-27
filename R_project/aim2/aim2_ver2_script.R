@@ -108,7 +108,7 @@ save(ivf_final, file="ivf_final.RData")
 
 # group OTUs to the genus level
 #group data based on specific taxanomic rank: Genus, don't want to remove NA
-mpt_genus <- tax_glom(ivf_final, "Genus", NArm = FALSE)
+mpt_genus <- tax_glom(ivf_phyloseq, "Genus", NArm = FALSE)
 #convert counts from otu table from absolute to relative
 mpt_genus_RA <- transform_sample_counts(mpt_genus, fun=function(x) x/sum(x))
 
