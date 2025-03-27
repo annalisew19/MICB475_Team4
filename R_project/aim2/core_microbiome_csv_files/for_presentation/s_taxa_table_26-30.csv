@@ -1,10 +1,10 @@
-"","Domain","Phylum","Class","Order","Family","Genus","Species","ASV"
-"9cdc58e77c70ef3139903d6ae5e99d84","d__Bacteria","p__Firmicutes","c__Bacilli","o__Lactobacillales","f__Lactobacillaceae","g__Lactobacillus",NA,"9cdc58e77c70ef3139903d6ae5e99d84"
-"c9ee2d8d47aa23d40103fb37873dfa78","d__Bacteria","p__Firmicutes","c__Bacilli","o__Lactobacillales","f__Lactobacillaceae","g__Lactobacillus",NA,"c9ee2d8d47aa23d40103fb37873dfa78"
-"444a7c63b653c00a6a4303b40d645823","d__Bacteria","p__Firmicutes","c__Bacilli","o__Lactobacillales","f__Lactobacillaceae","g__Lactobacillus",NA,"444a7c63b653c00a6a4303b40d645823"
-"0c4d5bf577871d3b9778ed968794e772","d__Bacteria","p__Firmicutes","c__Bacilli","o__Lactobacillales","f__Lactobacillaceae","g__Lactobacillus","s__Lactobacillus_crispatus","0c4d5bf577871d3b9778ed968794e772"
-"6c53de8ee257eab49553f4ee04aec14a","Unassigned",NA,NA,NA,NA,NA,NA,"6c53de8ee257eab49553f4ee04aec14a"
-"514bf75718934175cc2e36beb2e7a2a8","d__Bacteria",NA,NA,NA,NA,NA,NA,"514bf75718934175cc2e36beb2e7a2a8"
-"ceb261aa236c0c5e4172e2c995346bd0","Unassigned",NA,NA,NA,NA,NA,NA,"ceb261aa236c0c5e4172e2c995346bd0"
-"e90597262df64a81f9263cf5d162183e","Unassigned",NA,NA,NA,NA,NA,NA,"e90597262df64a81f9263cf5d162183e"
-"6282046969d4e346753ca7bc1b47f792","d__Bacteria",NA,NA,NA,NA,NA,NA,"6282046969d4e346753ca7bc1b47f792"
+,Domain,Phylum,Class,Order,Family,Genus,Species,ASV,,,,
+9cdc58e77c70ef3139903d6ae5e99d84,d__Bacteria,p__Firmicutes,c__Bacilli,o__Lactobacillales,f__Lactobacillaceae,g__Lactobacillus,NA,9cdc58e77c70ef3139903d6ae5e99d84,,,,
+c9ee2d8d47aa23d40103fb37873dfa78,d__Bacteria,p__Firmicutes,c__Bacilli,o__Lactobacillales,f__Lactobacillaceae,g__Lactobacillus,NA,c9ee2d8d47aa23d40103fb37873dfa78,,,,
+444a7c63b653c00a6a4303b40d645823,d__Bacteria,p__Firmicutes,c__Bacilli,o__Lactobacillales,f__Lactobacillaceae,g__Lactobacillus,NA,444a7c63b653c00a6a4303b40d645823,,,,
+0c4d5bf577871d3b9778ed968794e772,d__Bacteria,p__Firmicutes,c__Bacilli,o__Lactobacillales,f__Lactobacillaceae,g__Lactobacillus,s__Lactobacillus_crispatus,0c4d5bf577871d3b9778ed968794e772,,,,
+6c53de8ee257eab49553f4ee04aec14a,Unassigned,NA,NA,NA,NA,NA,NA,6c53de8ee257eab49553f4ee04aec14a,,,,uncultured bacterium
+514bf75718934175cc2e36beb2e7a2a8,d__Bacteria,NA,NA,NA,NA,NA,NA,514bf75718934175cc2e36beb2e7a2a8,,,,streptomyces
+ceb261aa236c0c5e4172e2c995346bd0,Unassigned,NA,NA,NA,NA,NA,NA,ceb261aa236c0c5e4172e2c995346bd0,,,,lactobacillus
+e90597262df64a81f9263cf5d162183e,Unassigned,NA,NA,NA,NA,NA,NA,e90597262df64a81f9263cf5d162183e,,,,pseudomonas
+6282046969d4e346753ca7bc1b47f792,d__Bacteria,NA,NA,NA,NA,NA,NA,6282046969d4e346753ca7bc1b47f792,,,,can't identify
