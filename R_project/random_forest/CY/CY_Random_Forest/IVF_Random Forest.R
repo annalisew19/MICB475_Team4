@@ -57,9 +57,9 @@ varImpPlot(rf)
 
 # prediction and confusion matrix
 p1 <- predict(rf, train)
-confusionMatrix(p1, train$ ionizing_radiation)
+confusionMatrix(p1, train$pregnancy_success)
 
 # run prediction and confusion on the test data now
 p2 <- predict(rf, test)
-confusionMatrix(p2, test$ ionizing_radiation)
+confusionMatrix(p2, test$pregnancy_success)
 
