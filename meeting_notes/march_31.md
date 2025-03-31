@@ -11,8 +11,8 @@
   
 - Random forest modelling:
 
-- some literature search
-  - paper which we obtained data from indicated that Streptomyces is positively correlated to lactobacillus, however unique to the EF
+- some search regarding Streptomyces in endometrium microbiome
+  - paper which we obtained data from indicated that Streptomyces is positively correlated to lactobacillus, however only unique to the EF
 
 
 ### Questions to ask/issues
