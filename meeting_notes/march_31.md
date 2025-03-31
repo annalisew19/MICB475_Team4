@@ -3,7 +3,15 @@
 ### What we have done
 
 - Finished slides for presentation
-- Random forest modelling
+- Fixed alpha diversity linear regression plots:
+
+<img src="../R_project/aim1/Shannon_linear_reg.png" height="300" width="400"> 
+
+<img src="../R_project/aim1/Faith_PD_linear_reg.png" height="300" width="400"> 
+  
+- Random forest modelling:
+
+
 
 
 ### Questions to ask/issues
