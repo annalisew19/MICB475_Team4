@@ -15,7 +15,7 @@
 
 
 ### Questions to ask/issues
-
+- Should we include beta diversity and ISA results in the manuscript?
 
 ### Meeting Notes
 
