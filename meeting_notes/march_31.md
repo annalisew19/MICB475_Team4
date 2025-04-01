@@ -19,7 +19,11 @@
 - Should we include beta diversity and ISA results in the manuscript?
 
 ### Meeting Notes
-
+- only include Gini plot for random tree in manuscript, mention accuracy %
+- core microbiome a bit too messy, simplify and can resend to evelyn
+- find literature to explain the biological phenomenom for Streptomyces
+- dont need to do picrust
+- 2 types of publication: one with peer review (require extra meeting with editor during the summer), one without
 
 ### Next week
 
