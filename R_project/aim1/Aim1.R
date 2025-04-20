@@ -337,7 +337,8 @@ tax_bar_plot <- plot_bar(ivf_genus, fill = "Genus") +
   labs(x = "Samples", y = "Relative Abundance", title = "Taxonomic Composition by Age & Outcome") +
   scale_y_continuous(labels = scales::percent) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, size = 8),
+  theme(axis.text.x = element_blank(),
+        axis.ticks.x = element_blank(),
         strip.text = element_text(face = "bold", size = 12))
 
 ggsave("tax_composition_genus.png",
